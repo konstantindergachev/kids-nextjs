@@ -57,3 +57,27 @@
 .boxContainer:first-child {
   text-align: right;
 }
+
+@media (max-width: 768px) {
+  .features {
+    flex-flow: column;
+  }
+  .title {
+    text-align: center;
+  }
+  .boxContainer:first-child .box {
+    flex-flow: column;
+    text-align: center;
+  }
+  .boxContainer + div {
+    display: none !important;
+  }
+  .boxContainer .box {
+    flex-flow: column;
+    text-align: center;
+  }
+
+  .stick {
+    display: none;
+  }
+}

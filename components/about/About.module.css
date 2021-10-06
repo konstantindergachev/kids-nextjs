@@ -18,3 +18,12 @@
   color: #666;
   padding: 1rem 0;
 }
+@media (max-width: 768px) {
+  .image img {
+    display: none !important;
+  }
+
+  .content {
+    text-align: center;
+  }
+}

@@ -38,3 +38,21 @@ section {
   padding: 1rem;
   font-size: 3.5rem;
 }
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+
+  section {
+    padding: 0 3%;
+    padding-top: 11rem;
+    padding-bottom: 9rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}

@@ -10,7 +10,7 @@ const Pricing = () => {
 
       <div className={styles.boxContainer}>
         <div className={styles.box}>
-          <h3 classNameName={styles.boxTitle}>weekly</h3>
+          <h3 className={styles.boxTitle}>weekly</h3>
           <div className={styles.boxPrice}>
             <span>$</span>20
           </div>
@@ -23,11 +23,11 @@ const Pricing = () => {
         </div>
 
         <div className={styles.box}>
-          <span classNameName={styles.boxChoise}>
+          <span className={styles.boxChoise}>
             best <br /> choise
           </span>
-          <h3 classNameName={styles.boxTitle}>monthly</h3>
-          <div classNameName={styles.boxPrice}>
+          <h3 className={styles.boxTitle}>monthly</h3>
+          <div className={styles.boxPrice}>
             <span>$</span>50
           </div>
           <p>
@@ -39,7 +39,7 @@ const Pricing = () => {
         </div>
 
         <div className={styles.box}>
-          <h3 classNameName={styles.boxTitle}>yearly</h3>
+          <h3 className={styles.boxTitle}>yearly</h3>
           <div className={styles.boxPrice}>
             <span>$</span>250
           </div>

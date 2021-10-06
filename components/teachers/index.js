@@ -15,7 +15,7 @@ const Teachers = () => {
       <div className={styles.boxContainer}>
         <div className={styles.box}>
           <Image src={pic1} alt="teacher one" />
-          <h3 classNameName={styles.boxTitle}>john deo</h3>
+          <h3 className={styles.boxTitle}>john deo</h3>
           <span>teacher</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
@@ -32,7 +32,7 @@ const Teachers = () => {
 
         <div className={styles.box}>
           <Image src={pic2} alt="teacher two" />
-          <h3 classNameName={styles.boxTitle}>john deo</h3>
+          <h3 className={styles.boxTitle}>john deo</h3>
           <span>teacher</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
@@ -49,7 +49,7 @@ const Teachers = () => {
 
         <div className={styles.box}>
           <Image src={pic3} alt="teacher three" />
-          <h3 classNameName={styles.boxTitle}>john deo</h3>
+          <h3 className={styles.boxTitle}>john deo</h3>
           <span>teacher</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
@@ -66,7 +66,7 @@ const Teachers = () => {
 
         <div className={styles.box}>
           <Image src={pic4} alt="teacher four" />
-          <h3 classNameName={styles.boxTitle}>john deo</h3>
+          <h3 className={styles.boxTitle}>john deo</h3>
           <span>teacher</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>

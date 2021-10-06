@@ -24,3 +24,24 @@
   position: relative;
   top: -9rem;
 }
+
+@media (max-width: 768px) {
+  .image img {
+    display: none !important;
+  }
+  .content {
+    text-align: center;
+  }
+
+  .content h1 {
+    font-size: 3.5rem;
+  }
+
+  .content h3 {
+    font-size: 2.5rem;
+  }
+
+  .content p {
+    font-size: 1.5rem;
+  }
+}
