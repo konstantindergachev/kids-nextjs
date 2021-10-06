@@ -1,0 +1,109 @@
+.contact {
+  display: flex;
+  align-items: center;
+}
+
+.image img {
+  width: 38vw !important;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.contactInfo {
+  padding: 2rem;
+}
+
+.contactForm {
+  padding: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 3rem;
+  border-radius: 5rem;
+  background: var(--red);
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.btn:hover {
+  background: #333;
+}
+
+.box {
+  padding: 1rem 0;
+}
+
+.title {
+  padding: 1rem 0;
+  font-size: 3rem;
+  color: #333;
+}
+
+.box p {
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+  color: #666;
+}
+
+.box p i {
+  padding-right: 0.5rem;
+  color: var(--red);
+}
+
+.box a {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 50%;
+  border: 0.1rem solid #333;
+  color: #333;
+  font-size: 1.7rem;
+  margin: 0.2rem;
+  text-align: center;
+}
+
+.box a:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.box form input[type='email'] {
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  color: #666;
+  text-transform: none;
+  border-radius: 5rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.contactForm h3 {
+  font-size: 3rem;
+  color: #333;
+  padding-bottom: 1rem;
+}
+
+.contactForm .box {
+  width: 100%;
+  border-radius: 5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.7rem;
+  color: #666;
+  margin: 1rem 0;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  text-transform: none;
+}
+
+.contactForm .message {
+  border-radius: 2rem;
+  height: 15rem;
+  resize: none;
+}

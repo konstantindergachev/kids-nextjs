@@ -1,0 +1,63 @@
+.boxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 1 1 27rem;
+  padding: 2rem 3rem;
+  margin: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  text-align: center;
+  background: url(../../images/card-bg1.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.box img {
+  height: 12rem;
+  width: 12rem;
+  padding: 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.boxTitle {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.box span {
+  font-size: 1.7rem;
+  color: var(--red);
+}
+
+.share {
+  padding: 1rem 0;
+}
+
+.share a {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 50%;
+  border: 0.1rem solid #333;
+  color: #333;
+  font-size: 1.7rem;
+  margin: 0.2rem;
+}
+
+.share a:hover {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+
+.box p {
+  color: #666;
+  font-size: 1.4rem;
+}

@@ -1,0 +1,25 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: url(../../images/header-bg.png) no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  z-index: 10000;
+  padding: 1.5rem 7%;
+  padding-bottom: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu__bars {
+  font-size: 3rem;
+  border: 0.1rem solid #333;
+  color: #333;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  display: none;
+}

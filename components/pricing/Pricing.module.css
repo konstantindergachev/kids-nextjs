@@ -1,0 +1,84 @@
+.upAndDown::before,
+.upAndDown::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 10rem;
+  width: 100%;
+  background-size: cover;
+}
+
+.upAndDown::before {
+  background: url(../../images/img-top.png) no-repeat;
+  top: -6rem;
+}
+
+.upAndDown::after {
+  background: url(../../images/img-down.png) no-repeat;
+  bottom: -6rem;
+}
+.pricing {
+  position: relative;
+}
+
+.boxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 1 1 25rem;
+  margin: 1rem;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+  overflow: hidden;
+}
+.box:nth-child(1) {
+  background: url(../../images/card-bg1.png) no-repeat;
+}
+.box:nth-child(2) {
+  background: url(../../images/card-bg2.png) no-repeat;
+}
+.box:nth-child(3) {
+  background: url(../../images/card-bg3.png) no-repeat;
+}
+
+.boxTitle {
+  font-size: 4rem;
+  color: #333;
+}
+
+.boxPrice {
+  font-size: 5.5rem;
+  color: var(--red);
+}
+
+.box .price span {
+  font-size: 2.5rem;
+}
+
+.box p {
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  color: #666;
+}
+
+.boxChoise {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  background: var(--red);
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.6rem 5.5rem;
+  transform: rotate(45deg);
+}

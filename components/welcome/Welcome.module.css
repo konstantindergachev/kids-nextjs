@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  align-items: center;
+}
+
+.content h1 {
+  font-size: 5rem;
+  color: var(--red);
+}
+
+.content h3 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.content p {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+.image img {
+  width: 36vw;
+  position: relative;
+  top: -9rem;
+}

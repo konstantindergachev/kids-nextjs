@@ -1,0 +1,20 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image img {
+  width: 100vw !important;
+}
+
+.content h3 {
+  font-size: 4rem;
+  color: var(--red);
+}
+
+.content p {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 1rem 0;
+}

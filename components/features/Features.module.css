@@ -1,0 +1,59 @@
+.upAndDown::before,
+.upAndDown::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 10rem;
+  width: 100%;
+  background-size: cover;
+}
+
+.upAndDown::before {
+  background: url(../../images/img-top.png) no-repeat;
+  top: -6rem;
+}
+
+.upAndDown::after {
+  background: url(../../images/img-down.png) no-repeat;
+  bottom: -6rem;
+}
+.features {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  position: relative;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--red);
+  padding: 2rem 0;
+}
+
+.box {
+  gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.info h3 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.info p {
+  font-size: 1.7rem;
+  color: #666;
+}
+
+.boxContainer:first-child .box {
+  flex-flow: row-reverse;
+}
+
+.boxContainer:first-child {
+  text-align: right;
+}

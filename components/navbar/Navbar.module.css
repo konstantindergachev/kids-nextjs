@@ -1,0 +1,16 @@
+.navbar button {
+  font-size: 2rem;
+  line-height: 1.7;
+  padding: 0 1rem;
+  margin-left: 2rem;
+  border-radius: 5rem;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s ease-in;
+}
+
+.navbar button:hover {
+  background-color: var(--red);
+  color: #fff;
+}

@@ -1,16 +1,40 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --red: #f53b57;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Pacifico', cursive;
+  text-transform: capitalize;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  transition: all 0.2s ease-out;
+}
+
+*::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  padding: 0 7%;
+  padding-top: 11rem;
+  padding-bottom: 9rem;
+}
+
+.heading {
+  text-align: center;
+  color: var(--red);
+  padding: 1rem;
+  font-size: 3.5rem;
 }
