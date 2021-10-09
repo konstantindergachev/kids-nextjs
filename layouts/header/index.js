@@ -14,10 +14,10 @@ const Header = () => {
     <header className={styles.header}>
       <Logo />
       <div
-        className={`fas ${menuIsOpen ? 'fa-times' : 'fa-bars'} ${styles.menuBars}`}
+        className={`fas ${!menuIsOpen ? 'fa-times' : 'fa-bars'} ${styles.menuBars}`}
         onClick={toggleMobileMenu}
       ></div>
-      {menuIsOpen && <Navbar />}
+      {!menuIsOpen && <Navbar />}
     </header>
   );
 };
