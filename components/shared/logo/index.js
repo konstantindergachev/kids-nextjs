@@ -4,7 +4,7 @@ import styles from './Logo.module.css';
 const Logo = () => {
   return (
     <a href="#" className={styles.logo}>
-      <i className="fas fa-child"></i>дети у двора
+      <i className="fas fa-child"></i>детвора
     </a>
   );
 };

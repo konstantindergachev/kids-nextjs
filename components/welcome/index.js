@@ -9,14 +9,13 @@ const Welcome = () => {
   return (
     <section className={`${styles.home} ${styles.background}`}>
       <div className={styles.content}>
-        <h1>welcome to kidzies</h1>
-        <h3>making education more fun.</h3>
+        <h1>Добро пожаловать к детворе</h1>
+        <h3>делаем обучение веселым</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore accusamus eum, dolore
-          officiis facilis fugiat sint. Animi unde blanditiis, ab quibusdam illum minus
-          exercitationem dolore expedita asperiores odit, consectetur iusto.
+          Мы поможем вашим детям познакомится с миром общения с помощью увлекательных игр, которые
+          разработаны нашими детскими учителями и детьми.
         </p>
-        <Button title={'learn more'} />
+        <Button title="узнать больше" />
       </div>
 
       <div className={styles.image}>
