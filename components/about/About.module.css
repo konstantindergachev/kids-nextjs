@@ -17,6 +17,7 @@
   font-size: 1.7rem;
   color: var(--text-color);
   padding: 1rem 0;
+  text-transform: initial;
 }
 @media (max-width: 768px) {
   .image img {

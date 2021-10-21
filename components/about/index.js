@@ -13,17 +13,19 @@ const About = () => {
       </div>
 
       <div className={styles.content}>
-        <h3>a word about us</h3>
+        <h3>пару слов о нас</h3>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit nisi quod consequuntur
-          dolor molestiae magnam magni veritatis? Tenetur optio excepturi harum eius quaerat labore
-          cumque dolorem dignissimos alias. Perspiciatis, expedita.
+          Приходя в "Детвора", Вы выбираете квалифицированную помощь, направленную на достижение
+          Вашим ребёнком поставленных задач. Работа выстроена в комфортном режиме для ребенка —
+          такой подход дает максимальные результаты за короткий срок. После каждого занятия родитель
+          получает рекомендации от специалистов.
         </p>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit minima odio est unde
-          nesciunt necessitatibus, fugiat laboriosam quidem magni? Maxime?
+          Главной задачей команды "Детвора" является всестороннее развитие ребенка с самого раннего
+          возраста, начиная с одного года. Помимо этого, вся наша работа направлена на укрепление
+          семейных отношений при помощи организации совместного досуга детей и родителей.
         </p>
-        <Button title={'learn more'} />
+        <Button title="Узнать больше" />
       </div>
     </section>
   );
