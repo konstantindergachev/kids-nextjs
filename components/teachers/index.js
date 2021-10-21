@@ -10,13 +10,13 @@ import styles from './Teachers.module.css';
 const Teachers = () => {
   return (
     <section>
-      <h1 className="heading">our amazing teachers</h1>
+      <h1 className="heading">друзья-наставники</h1>
 
       <div className={styles.boxContainer}>
         <div className={styles.box}>
           <Image src={pic1} alt="teacher one" />
-          <h3 className={styles.boxTitle}>john deo</h3>
-          <span>teacher</span>
+          <h3 className={styles.boxTitle}>Ксения Андреевна Лобусова</h3>
+          <span>друг-педагог</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
             <a href="#" className="fab fa-twitter"></a>
@@ -24,16 +24,16 @@ const Teachers = () => {
             <a href="#" className="fab fa-linkedin"></a>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, molestiae ab soluta iste
-            delectus facilis beatae earum reiciendis repellat, consequuntur sequi dolorem error,
-            labore dolores ullam distinctio illo. Voluptas, molestias?
+            Окончила харьковскую государственную академию дизайна и искусств. Диплом по
+            специальности "промышленный дизайн". Художник-график, иллюстратор. Стаж работы с детьми
+            -7 лет. Работает в частных клубах.
           </p>
         </div>
 
         <div className={styles.box}>
           <Image src={pic2} alt="teacher two" />
-          <h3 className={styles.boxTitle}>john deo</h3>
-          <span>teacher</span>
+          <h3 className={styles.boxTitle}>Антон Викторович Сухов</h3>
+          <span>друг-тренер</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
             <a href="#" className="fab fa-twitter"></a>
@@ -41,16 +41,16 @@ const Teachers = () => {
             <a href="#" className="fab fa-linkedin"></a>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, molestiae ab soluta iste
-            delectus facilis beatae earum reiciendis repellat, consequuntur sequi dolorem error,
-            labore dolores ullam distinctio illo. Voluptas, molestias?
+            Тренер по шахматам. КМС. Опыт тренерской работы с детьми — 7 лет. Окончил Харьковский
+            национальный университет радиоэлектроники (ХНУРЕ) по специальности «информационные
+            управляющие системы и технологии».
           </p>
         </div>
 
         <div className={styles.box}>
           <Image src={pic3} alt="teacher three" />
-          <h3 className={styles.boxTitle}>john deo</h3>
-          <span>teacher</span>
+          <h3 className={styles.boxTitle}>Ольга Валерьевны Пухова</h3>
+          <span>друг-педагог</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
             <a href="#" className="fab fa-twitter"></a>
@@ -58,16 +58,16 @@ const Teachers = () => {
             <a href="#" className="fab fa-linkedin"></a>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, molestiae ab soluta iste
-            delectus facilis beatae earum reiciendis repellat, consequuntur sequi dolorem error,
-            labore dolores ullam distinctio illo. Voluptas, molestias?
+            Окончила харьковский национальный университет искусств им. И.П. Котляревского (ХНУМ).
+            Наставник по "истории украинской музыки" и ведет "практикум по современной музыки". Опыт
+            тренерской работы с детьми — 5 лет.
           </p>
         </div>
 
         <div className={styles.box}>
           <Image src={pic4} alt="teacher four" />
-          <h3 className={styles.boxTitle}>john deo</h3>
-          <span>teacher</span>
+          <h3 className={styles.boxTitle}>Павел Сергеевич Антонов</h3>
+          <span>друг-тренер</span>
           <div className={styles.share}>
             <a href="#" className="fab fa-facebook-f"></a>
             <a href="#" className="fab fa-twitter"></a>
@@ -75,9 +75,8 @@ const Teachers = () => {
             <a href="#" className="fab fa-linkedin"></a>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, molestiae ab soluta iste
-            delectus facilis beatae earum reiciendis repellat, consequuntur sequi dolorem error,
-            labore dolores ullam distinctio illo. Voluptas, molestias?
+            окончил харьковскую государственную академию физической культуры. Тренер по фитнесу.
+            Педагог по комплексному развитию детей 3-15 лет. Опыт тренерской работы — более 5 лет.
           </p>
         </div>
       </div>

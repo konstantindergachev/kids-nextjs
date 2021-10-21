@@ -6,6 +6,7 @@
 }
 
 .box {
+  min-height: 450px;
   flex: 1 1 27rem;
   padding: 2rem 3rem;
   margin: 1rem;
