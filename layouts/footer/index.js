@@ -6,10 +6,11 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div>
-        design created by <span> mr. web designer </span> | all rights reserved!
+        дизайн сайта создан <span> мр. веб дизайнер </span> | сверстан{' '}
+        <span>Константин Дергачёв</span>
       </div>
       <div>
-        &copy;<span> {new Date().getFullYear()}</span>
+        Все права <span>защищены!</span> | &copy;<span> {new Date().getFullYear()}</span>
       </div>
     </footer>
   );
