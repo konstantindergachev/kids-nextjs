@@ -5,14 +5,14 @@
   margin-left: 2rem;
   border-radius: 5rem;
   background-color: transparent;
-  color: #333;
+  color: var(--title-color);
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s ease-in;
 }
 
 .navbar button:hover {
   background-color: var(--red);
-  color: #fff;
+  color: var(--white);
 }
 
 @media (max-width: 768px) {
@@ -22,7 +22,7 @@
     left: 0;
     right: 0;
     height: calc(100vh - 70%);
-    border-top: 0.2rem solid #333;
+    border-top: 0.2rem solid var(--title-color);
     background: url(../../images/card-bg1.png) no-repeat;
     background-size: cover;
     background-position: center;

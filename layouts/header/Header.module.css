@@ -16,8 +16,8 @@
 
 .menuBars {
   font-size: 3rem;
-  border: 0.1rem solid #333;
-  color: #333;
+  border: 0.1rem solid var(--title-color);
+  color: var(--title-color);
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   border-radius: 0.5rem;

@@ -28,7 +28,7 @@
 
 .boxTitle {
   font-size: 2.5rem;
-  color: #333;
+  color: var(--title-color);
 }
 
 .box span {
@@ -45,19 +45,19 @@
   width: 4.5rem;
   line-height: 4.5rem;
   border-radius: 50%;
-  border: 0.1rem solid #333;
-  color: #333;
+  border: 0.1rem solid var(--title-color);
+  color: var(--title-color);
   font-size: 1.7rem;
   margin: 0.2rem;
 }
 
 .share a:hover {
   background: var(--red);
-  color: #fff;
+  color: var(--white);
   border-color: var(--red);
 }
 
 .box p {
-  color: #666;
+  color: var(--text-color);
   font-size: 1.4rem;
 }

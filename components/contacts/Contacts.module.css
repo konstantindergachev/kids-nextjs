@@ -30,13 +30,13 @@
 .title {
   padding: 1rem 0;
   font-size: 3rem;
-  color: #333;
+  color: var(--title-color);
 }
 
 .box p {
   font-size: 1.7rem;
   padding: 0.5rem 0;
-  color: #666;
+  color: var(--text-color);
   text-transform: lowercase;
 }
 
@@ -50,8 +50,8 @@
   width: 4.5rem;
   line-height: 4.5rem;
   border-radius: 50%;
-  border: 0.1rem solid #333;
-  color: #333;
+  border: 0.1rem solid var(--title-color);
+  color: var(--title-color);
   font-size: 1.7rem;
   margin: 0.2rem;
   text-align: center;
@@ -60,12 +60,12 @@
 .box a:hover {
   background: var(--red);
   border-color: var(--red);
-  color: #fff;
+  color: var(--white);
 }
 
 .contactForm h3 {
   font-size: 3rem;
-  color: #333;
+  color: var(--title-color);
   padding-bottom: 1rem;
 }
 

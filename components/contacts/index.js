@@ -47,7 +47,7 @@ const Contacts = () => {
         <form action="" className={styles.contactForm}>
           <h3>Напиши нам</h3>
 
-          <input type="text" placeholder="текс" />
+          <input type="text" placeholder="текст" />
           <input type="email" placeholder="test@example.com" />
           <input type="number" placeholder="число" />
           <textarea placeholder="сообщение" name="" id="" cols="30" rows="10"></textarea>

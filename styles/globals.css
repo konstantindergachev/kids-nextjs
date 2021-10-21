@@ -1,5 +1,11 @@
 :root {
   --red: #f53b57;
+  --white: #ffffff;
+  --title-color: #333333;
+  --text-color: #666666;
+  --modal-wrap: rgba(30, 30, 30, 0.9);
+  --input-border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  --input-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -16,7 +22,7 @@
 
 *::selection {
   background: var(--red);
-  color: #fff;
+  color: var(--white);
 }
 
 html {
@@ -45,10 +51,10 @@ textarea {
   border-radius: 5rem;
   padding: 1rem 1.5rem;
   font-size: 1.7rem;
-  color: #666;
+  color: var(--text-color);
   margin: 1rem 0;
-  border: 0.1rem solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: var(--input-border);
+  box-shadow: var(--input-shadow);
   text-transform: none;
 }
 textarea {

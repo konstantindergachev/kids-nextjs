@@ -1,6 +1,6 @@
 .logo {
   font-size: 2.5rem;
-  color: #333;
+  color: var(--title-color);
 }
 
 .logo i {

@@ -34,7 +34,7 @@
   flex: 1 1 30rem;
   margin: 1rem;
   border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: var(--input-shadow);
   position: relative;
   cursor: pointer;
 }
@@ -49,7 +49,7 @@
 .info {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--modal-wrap);
   text-align: center;
   position: absolute;
   top: -100%;
@@ -62,7 +62,7 @@
 
 .boxTitle {
   font-size: 3rem;
-  color: #fff;
+  color: var(--white);
   transform: translateY(10rem);
   opacity: 0;
 }
