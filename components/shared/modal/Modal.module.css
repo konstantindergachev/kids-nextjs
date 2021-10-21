@@ -8,11 +8,13 @@
   z-index: 1000;
 }
 .modalBox {
-  background-color: var(--white);
+  background: url(../../../images/header-bg.png) no-repeat;
+  background-size: cover;
+  background-position: bottom;
   z-index: 1001;
 
   max-width: 40rem;
-  padding: 44px;
+  padding: 44px 44px 70px 44px;
 
   display: flex;
   justify-content: space-between;
