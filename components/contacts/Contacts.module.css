@@ -19,20 +19,8 @@
 .contactForm {
   padding: 2rem;
 }
-
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.7rem 3rem;
-  border-radius: 5rem;
-  background: var(--red);
-  color: #fff;
-  font-size: 2rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-.btn:hover {
-  background: #333;
+.contactForm button {
+  width: 100%;
 }
 
 .box {
@@ -49,6 +37,7 @@
   font-size: 1.7rem;
   padding: 0.5rem 0;
   color: #666;
+  text-transform: lowercase;
 }
 
 .box p i {
@@ -74,38 +63,10 @@
   color: #fff;
 }
 
-.box form input[type='email'] {
-  padding: 1rem 1.5rem;
-  font-size: 1.5rem;
-  color: #666;
-  text-transform: none;
-  border-radius: 5rem;
-  border: 0.1rem solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
-
 .contactForm h3 {
   font-size: 3rem;
   color: #333;
   padding-bottom: 1rem;
-}
-
-.contactForm .box {
-  width: 100%;
-  border-radius: 5rem;
-  padding: 1rem 1.5rem;
-  font-size: 1.7rem;
-  color: #666;
-  margin: 1rem 0;
-  border: 0.1rem solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  text-transform: none;
-}
-
-.contactForm .message {
-  border-radius: 2rem;
-  height: 15rem;
-  resize: none;
 }
 
 @media (max-width: 768px) {

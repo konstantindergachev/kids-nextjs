@@ -4,6 +4,7 @@ import Image from 'next/image';
 import pic1 from '../../images/contact-img.png';
 
 import styles from './Contacts.module.css';
+import Button from '@/shared/button';
 
 const Contacts = () => {
   return (
@@ -14,11 +15,11 @@ const Contacts = () => {
             <h3 className={styles.title}>contact details</h3>
             <p>
               {' '}
-              <i className="fas fa-map-marker-alt"></i> mumbai, india - 400104.{' '}
+              <i className="fas fa-map-marker-alt"></i> харьков, украина - 61001{' '}
             </p>
             <p>
               {' '}
-              <i className="fas fa-envelope"></i> example@gmail.com{' '}
+              <i className="fas fa-envelope"></i> test@example.com{' '}
             </p>
             <p>
               {' '}
@@ -27,7 +28,7 @@ const Contacts = () => {
           </div>
 
           <div className={styles.box}>
-            <h3 className={styles.title}>follow us</h3>
+            <h3 className={styles.title}>мы здесь</h3>
             <a href="#" className="fab fa-facebook-f"></a>
             <a href="#" className="fab fa-twitter"></a>
             <a href="#" className="fab fa-instagram"></a>
@@ -35,30 +36,22 @@ const Contacts = () => {
           </div>
 
           <div className={styles.box}>
-            <h3 className={styles.title}>newsletter</h3>
+            <h3 className={styles.title}>новости</h3>
             <form action="">
-              <input type="email" placeholder="enter your email" />
-              <input type="submit" className={styles.btn} value="send" />
+              <input type="email" placeholder="test@example.com" />
+              <Button type="submit" title="отправить" />
             </form>
           </div>
         </div>
 
         <form action="" className={styles.contactForm}>
-          <h3>contact us</h3>
+          <h3>Напиши нам</h3>
 
-          <input type="text" placeholder="name" className={styles.box} />
-          <input type="email" placeholder="email" className={styles.box} />
-          <input type="number" placeholder="number" className={styles.box} />
-          <textarea
-            placeholder="message"
-            className={`${styles.box} ${styles.message}`}
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-          ></textarea>
-
-          <input type="submit" className={styles.btn} value="send message" />
+          <input type="text" placeholder="текс" />
+          <input type="email" placeholder="test@example.com" />
+          <input type="number" placeholder="число" />
+          <textarea placeholder="сообщение" name="" id="" cols="30" rows="10"></textarea>
+          <Button type="submit" title="отправить сообщение" />
         </form>
       </div>
 

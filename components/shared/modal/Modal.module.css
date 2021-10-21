@@ -1,0 +1,32 @@
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(30, 30, 30, 0.3);
+  z-index: 999;
+}
+.modalBox {
+  background-color: #ffffff;
+  z-index: 1000;
+
+  padding: 44px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
