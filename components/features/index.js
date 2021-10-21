@@ -14,29 +14,70 @@ const Features = () => {
   return (
     <section className={`${styles.features} ${styles.upAndDown}`}>
       <div className={styles.boxContainer}>
-        <h3 className={styles.title}>why childrens love us</h3>
+        <h3 className={styles.title}>почему дети любят нас</h3>
 
         <div className={styles.box}>
           <Image src={pic1} alt="picture one" />
           <div className={styles.info}>
-            <h3>funny conversations</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, dolor!</p>
+            <h3>смешные разговоры</h3>
+            <p>Дети - неисчерпаемый источник позитива и непосредственности.</p>
+            <p>
+              Мы любим и ценим эти мгновения. А детки отвечают нам взаимностью:{' '}
+              <q>
+                <span>
+                  Вася (3 года) тосковал по бабушке. Подумав он решил пригласить ее в гости. Звонит
+                  ей и говорит:
+                </span>
+                <span>
+                  - Бабушка, приходи в гости. Мы купили конфеты и дихлофос. Будет очень весело!
+                </span>
+              </q>
+            </p>
+            <p>
+              <q>
+                <span>7-летняя дочь:</span>
+                <span>- А как ты это понял?</span>
+                <span>- Меня вдруг начала раздражать пыль на моем столе. Я убрал ее со стола.</span>
+              </q>
+            </p>
           </div>
         </div>
 
         <div className={styles.box}>
           <Image src={pic2} alt="picture two" />
           <div className={styles.info}>
-            <h3>Many activities</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, dolor!</p>
+            <h3>много занятий</h3>
+            <p>
+              Мы любим читать веселые книги и комиксы с детками вместе. Есть большой выбор книг,
+              которые будут читаться взахлеб.
+            </p>
+            <p>
+              В какой-то момент детки понимают, что можно не только читать, но и рисовать свои
+              комиксы. Мы рисуем вместе новые истории, или продолжаем известные с помощью готовых
+              шаблонов.
+            </p>
           </div>
         </div>
 
         <div className={styles.box}>
           <Image src={pic3} alt="picture 3" />
           <div className={styles.info}>
-            <h3>fun non-stop</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, dolor!</p>
+            <h3>веселье без остановки</h3>
+            <p>
+              Доброжелательная обстановка, уважительное отношение к любому посетителю Центра,
+              особенно к самому маленькому, создает ту необходимую доверительную атмосферу. Не
+              только занятия здесь проводятся в игровой форме, но и всё общение построено по
+              принципу наименьшего стресса для детей. Специалист внимательно следит за ребенком, за
+              его состоянием.
+            </p>
+            <p>Ребенок расслабляется и занимается с удовольствием!</p>
+            <p>Мы совершим сказочное изобразительное-путешествие с героями Киплинга!</p>
+            <p>Рисование людей, животных, поселений. И все это в разных техниках.</p>
+            <p>
+              Поделки своими руками. А еще мы будем заниматься декоративно-прикладным творчеством.{' '}
+            </p>
+            <p>Неожиданные встречи с известными, современными и любимыми персонажами.</p>
+            <p>Солнце, юмор, много-много историй и игр:</p>
           </div>
         </div>
       </div>
@@ -44,29 +85,58 @@ const Features = () => {
       <Image src={stick} alt="stick" />
 
       <div className={styles.boxContainer}>
-        <h3 className={styles.title}>why parents choose us</h3>
+        <h3 className={styles.title}>почему родители выбирают нас</h3>
 
         <div className={styles.box}>
           <Image src={rightIcon1} alt="right icon one" />
           <div className={styles.info}>
-            <h3>Continuous monitoring</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, dolor!</p>
+            <h3>непрерывный мониторинг</h3>
+            <p>Все игровые плащадки находятся под полным видео контролем.</p>
+            <p>
+              За 3 лет работы наш детский садик завоевал доверие многих жителей микрорайона. И не
+              только, к нам на занятия приезжают дети из других микрорайонов города.
+            </p>
+            <p>
+              Более 50% наших новичков приходят в «Детвора» по рекомендации своих родственников,
+              друзей, знакомых. Довольно часто из одной семьи ходят несколько детей.
+            </p>
+            <p>
+              Мы работаем каждый день недели без перерыва на лето. Садик расположен в удобном для
+              жителей месте.
+            </p>
+            <p>
+              Комфортная, домашняя атмосфера, удобные кабинеты для занятий, система вентиляции и
+              обеззараживания воздуха.
+            </p>
           </div>
         </div>
 
         <div className={styles.box}>
           <Image src={rightIcon2} alt="right icon two" />
           <div className={styles.info}>
-            <h3>Professionalism teachers</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, dolor!</p>
+            <h3>профессионализм учителей</h3>
+            <p>
+              Индивидуальный подход к вашему ребенку. Группа состоит максимум из 8 человек, поэтому
+              есть возможность уделить внимание каждому.
+            </p>
+            <p>
+              Профессиональный преподавательский состав. С детьми занимаются талантливые, любящие
+              детей преподаватели. Все наши педагоги имеют высшее образование и опыт работы с
+              детьми.
+            </p>
           </div>
         </div>
 
         <div className={styles.box}>
           <Image src={rightIcon3} alt="right icon 3" />
           <div className={styles.info}>
-            <h3>Developed programs</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, dolor!</p>
+            <h3>разработанные программы</h3>
+            <p>
+              Разнообразие развивающих курсов, широкий выбор студий. Родители могут подобрать
+              занятия, соответствующие интересам и увлечениям своих детей.
+            </p>
+            <p>Качественные развивающие материалы, пособия.</p>
+            <p>Каждый год мы открываем новые программы.</p>
           </div>
         </div>
       </div>
