@@ -6,7 +6,8 @@
   background: url(../../images/header-bg.png) no-repeat;
   background-size: cover;
   background-position: bottom;
-  z-index: 10000;
+  z-index: 999;
+
   padding: 1.5rem 7%;
   padding-bottom: 6rem;
   display: flex;

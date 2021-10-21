@@ -3,9 +3,10 @@
   --white: #ffffff;
   --title-color: #333333;
   --text-color: #666666;
-  --modal-wrap: rgba(30, 30, 30, 0.9);
+  --modal-wrap: rgba(30, 30, 30, 0.7);
   --input-border: 0.1rem solid rgba(0, 0, 0, 0.3);
   --input-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --slideInRight: slideInRight 0.3s ease-in;
 }
 
 * {
@@ -78,5 +79,16 @@ textarea {
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
   }
 }

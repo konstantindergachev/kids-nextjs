@@ -5,12 +5,13 @@
   width: 100%;
   min-height: 100%;
   background-color: var(--modal-wrap);
-  z-index: 999;
+  z-index: 1000;
 }
 .modalBox {
   background-color: var(--white);
-  z-index: 1000;
+  z-index: 1001;
 
+  max-width: 40rem;
   padding: 44px;
 
   display: flex;
@@ -19,9 +20,10 @@
   flex-wrap: wrap;
 
   position: fixed;
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, -75%);
+  top: 10rem;
+  right: 1rem;
+
+  animation: var(--slideInRight);
 }
 
 .content {
