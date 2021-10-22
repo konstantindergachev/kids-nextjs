@@ -8,6 +8,7 @@
   --input-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   --input-text-color: rgba(102, 102, 102, 0.5);
   --slideInRight: slideInRight 0.3s ease-in;
+  --rotateIn: rotateIn 0.5s ease-in;
 }
 
 * {
@@ -94,5 +95,17 @@ textarea {
 
   to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }

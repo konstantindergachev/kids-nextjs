@@ -15,6 +15,7 @@ export default function Modal({ children, isOpen, onClose }) {
         role={'button'}
       ></div>
       <div className={styles.modalBox}>
+        <div className={`fa fa-times ${styles.close}`} onClick={onClose}></div>
         <div className={styles.content}>{children}</div>
       </div>
     </>,

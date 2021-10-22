@@ -9,6 +9,7 @@
 }
 
 .modalBox {
+  position: relative;
   background: url(../../../images/header-bg.png) no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -24,6 +25,15 @@
   animation: var(--slideInRight);
 }
 
+.close {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+  cursor: pointer;
+  animation: var(--rotateIn);
+}
 .content {
   display: flex;
   flex-direction: column;
