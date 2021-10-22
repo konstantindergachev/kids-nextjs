@@ -6,6 +6,7 @@
   --modal-wrap: rgba(30, 30, 30, 0.7);
   --input-border: 0.1rem solid rgba(0, 0, 0, 0.3);
   --input-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --input-text-color: rgba(102, 102, 102, 0.5);
   --slideInRight: slideInRight 0.3s ease-in;
 }
 
@@ -62,6 +63,9 @@ textarea {
   border-radius: 2rem;
   height: 15rem;
   resize: none;
+}
+::placeholder {
+  color: var(--input-text-color);
 }
 
 @media (max-width: 1200px) {

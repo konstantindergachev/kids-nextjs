@@ -3,12 +3,21 @@ import Modal from '@/shared/modal';
 
 import styles from './Navbar.module.css';
 import Signin from '../auth/signin';
+import Signup from '../auth/signup';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAccount, setIsAccount] = useState(false);
 
   const handleModalOpen = () => () => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  const handleAccount = () => {
+    if (!isAccount) {
+      setIsAccount(!isAccount);
+    }
+    return;
   };
   return (
     <nav className={styles.navbar}>
@@ -23,10 +32,19 @@ const Navbar = () => {
         <i className="fas fa-user"></i>
       </button>
       <Modal isOpen={isModalOpen} onClose={handleModalOpen()}>
-        <Signin onClose={handleModalOpen()} />
-        <p>
-          нет учетной записи? <span>создать</span>
-        </p>
+        {!isAccount ? (
+          <>
+            <Signin onClose={handleModalOpen()} />
+            <p>
+              Нет учетной записи?{' '}
+              <span type="button" onClick={handleAccount}>
+                создать
+              </span>
+            </p>
+          </>
+        ) : (
+          <Signup onClose={handleModalOpen()} />
+        )}
       </Modal>
     </nav>
   );

@@ -35,4 +35,11 @@
   font-size: 2rem;
   line-height: 1.7;
   color: var(--text-color);
+  text-transform: initial;
+}
+
+.content p span {
+  color: var(--red);
+  text-transform: inherit;
+  cursor: pointer;
 }
