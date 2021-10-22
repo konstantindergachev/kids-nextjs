@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Modal from '@/shared/modal';
-import Button from '@/shared/button';
+
 import styles from './Navbar.module.css';
+import Signin from '../auth/signin';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,14 +23,10 @@ const Navbar = () => {
         <i className="fas fa-user"></i>
       </button>
       <Modal isOpen={isModalOpen} onClose={handleModalOpen()}>
-        <form action="">
-          <input type="email" placeholder="test@example.com" />
-          <input type="password" />
-        </form>
-        <div className={styles.buttonWrap}>
-          <Button title="отмена" onClick={handleModalOpen()} />
-          <Button title="войти" />
-        </div>
+        <Signin onClose={handleModalOpen()} />
+        <p>
+          нет учетной записи? <span>создать</span>
+        </p>
       </Modal>
     </nav>
   );
