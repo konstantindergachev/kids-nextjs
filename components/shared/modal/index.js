@@ -1,9 +1,8 @@
 import { createPortal } from 'react-dom';
-import Button from '../button';
 
 import styles from './Modal.module.css';
 
-export default function Modal({ isOpen, children, onClose }) {
+export default function Modal({ children, isOpen, onClose }) {
   if (!isOpen) return null;
 
   return createPortal(
@@ -17,8 +16,6 @@ export default function Modal({ isOpen, children, onClose }) {
       ></div>
       <div className={styles.modalBox}>
         <div className={styles.content}>{children}</div>
-        <Button title="отмена" onClick={onClose} />
-        <Button title="войти" />
       </div>
     </>,
     document.getElementById('modal')

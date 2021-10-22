@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from '@/shared/modal';
+import Button from '@/shared/button';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
@@ -25,6 +26,10 @@ const Navbar = () => {
           <input type="email" placeholder="test@example.com" />
           <input type="password" />
         </form>
+        <div className={styles.buttonWrap}>
+          <Button title="отмена" onClick={handleModalOpen()} />
+          <Button title="войти" />
+        </div>
       </Modal>
     </nav>
   );

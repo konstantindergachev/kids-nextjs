@@ -16,11 +16,6 @@
   max-width: 40rem;
   padding: 44px 44px 70px 44px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
   position: fixed;
   top: 10rem;
   right: 1rem;
