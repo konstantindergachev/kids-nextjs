@@ -14,10 +14,7 @@ const Navbar = () => {
   };
 
   const handleAccount = () => {
-    if (!isAccount) {
-      setIsAccount(!isAccount);
-    }
-    return;
+    setIsAccount(!isAccount);
   };
   return (
     <nav className={styles.navbar}>
@@ -43,7 +40,15 @@ const Navbar = () => {
             </p>
           </>
         ) : (
-          <Signup onClose={handleModalOpen()} />
+          <>
+            <Signup onClose={handleModalOpen()} />
+            <p>
+              Есть учетная запись?{' '}
+              <span type="button" onClick={handleAccount}>
+                войти
+              </span>
+            </p>
+          </>
         )}
       </Modal>
     </nav>

@@ -46,6 +46,7 @@
   line-height: 1.7;
   color: var(--text-color);
   text-transform: initial;
+  margin-bottom: 2rem;
 }
 
 .content p span {
