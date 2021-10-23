@@ -9,6 +9,8 @@ import Teachers from '@/components/teachers';
 import Pricing from '@/components/pricing';
 import Contacts from '@/components/contacts';
 
+import { request } from '../config/axios';
+
 import styles from '../styles/Home.module.css';
 
 export default function Home(props) {
@@ -31,7 +33,7 @@ export default function Home(props) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const response = await fetch('http://localhost:5000/tales');
+    const response = await request({ method: 'get', url: 'http://localhost:5000/tales' });
     if (response.ok) {
       const data = await response.json();
       return {

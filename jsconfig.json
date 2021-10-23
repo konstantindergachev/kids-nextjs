@@ -6,7 +6,8 @@
       "@/components/*": ["components/*"],
       "@/layouts/*": ["layouts/*"],
       "@/shared/*": ["components/shared/*"],
-      "@/services": ["/services"]
+      "@/services": ["/services"],
+      "@/constants": ["/constants"]
     }
   }
 }
