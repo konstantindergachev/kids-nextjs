@@ -31,19 +31,11 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps() {
   try {
-    const response = await request({ method: 'get', url: 'http://localhost:5000/tales' });
-    if (response.ok) {
-      const data = await response.json();
-      return {
-        props: { data },
-      };
-    }
+    const { tales } = await request({ method: 'get', url: 'http://localhost:5000/tales' });
     return {
-      props: {
-        error: response,
-      },
+      props: { tales },
     };
   } catch (error) {
     console.log('catch error', error); //FIXME:
