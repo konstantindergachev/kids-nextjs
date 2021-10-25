@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@/shared/button';
+import Error from '@/shared/error';
 import { notifyService } from '@/services';
 
 import styles from './Signup.module.css';
 
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ firstname: '', lastname: '', email: '', password: '' });
+  const [error, setError] = useState('');
   const handleChange = (ev) => {
     setUser((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
   };
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault();
-    notifyService.create({ endpoint: 'users', content: user });
+    try {
+      await notifyService.create({ endpoint: 'users', content: user });
+    } catch (error) {
+      setError(error?.data?.message);
+    }
   };
   return (
     <div className={styles.login}>
@@ -45,6 +51,7 @@ const Signup = ({ onClose }) => {
           value={user.password}
           onChange={handleChange}
         />
+        {error && <Error message={error} />}
         <div className={styles.buttonWrap}>
           <Button title="отмена" onClick={onClose} />
           <Button type="submit" title="регистрация" />

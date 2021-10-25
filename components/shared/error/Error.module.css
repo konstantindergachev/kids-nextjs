@@ -1,0 +1,4 @@
+.message {
+  color: var(--red) !important;
+  text-align: center;
+}
