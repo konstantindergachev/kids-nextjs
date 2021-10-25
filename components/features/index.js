@@ -12,7 +12,7 @@ import styles from './Features.module.css';
 
 const Features = () => {
   return (
-    <section className={`${styles.features} ${styles.upAndDown}`}>
+    <section id="features" className={`${styles.features} ${styles.upAndDown}`}>
       <div className={styles.boxContainer}>
         <h3 className={styles.title}>почему дети любят нас</h3>
 

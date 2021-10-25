@@ -5,7 +5,7 @@ import styles from './Pricing.module.css';
 
 const Pricing = () => {
   return (
-    <section className={`${styles.pricing} ${styles.upAndDown}`}>
+    <section id="pricing" className={`${styles.pricing} ${styles.upAndDown}`}>
       <h1 className="heading">цены и услуги</h1>
 
       <div className={styles.boxContainer}>

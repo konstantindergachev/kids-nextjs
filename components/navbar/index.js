@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import CustomLink from '@/shared/link';
 import Modal from '@/shared/modal';
-
-import styles from './Navbar.module.css';
 import Signin from '../auth/signin';
 import Signup from '../auth/signup';
 import UserNavbar from './user-navbar';
+
+import styles from './Navbar.module.css';
 
 const Navbar = ({ username = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,13 +20,13 @@ const Navbar = ({ username = '' }) => {
   };
   return (
     <nav className={styles.navbar}>
-      <button type="button">главная</button>
-      <button type="button">особенности</button>
-      <button type="button">о нас</button>
-      <button type="button">сервисы</button>
-      <button type="button">воспитатели</button>
-      <button type="button">цена</button>
-      <button type="button">контакты</button>
+      <CustomLink pathname="#" title="главная" />
+      <CustomLink pathname="#features" title="особенности" />
+      <CustomLink pathname="#about" title="о нас" />
+      <CustomLink pathname="#services" title="сервисы" />
+      <CustomLink pathname="#teachers" title="воспитатели" />
+      <CustomLink pathname="#pricing" title="цена" />
+      <CustomLink pathname="#contacts" title="контакт" />
       {username ? (
         <UserNavbar username={username} />
       ) : (

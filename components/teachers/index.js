@@ -9,7 +9,7 @@ import styles from './Teachers.module.css';
 
 const Teachers = () => {
   return (
-    <section>
+    <section id="teachers">
       <h1 className="heading">друзья-наставники</h1>
 
       <div className={styles.boxContainer}>

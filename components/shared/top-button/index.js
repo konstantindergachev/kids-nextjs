@@ -6,7 +6,7 @@ import styles from './TopButton.module.css';
 const TopButton = () => {
   return (
     <div className={styles.topButton}>
-      <Link href="/">&#9650;</Link>
+      <Link href="/#">&#9650;</Link>
     </div>
   );
 };

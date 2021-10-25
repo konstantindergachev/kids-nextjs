@@ -11,7 +11,7 @@ import styles from './Services.module.css';
 
 const Services = () => {
   return (
-    <section className={`${styles.services} ${styles.upAndDown}`}>
+    <section id="services" className={`${styles.services} ${styles.upAndDown}`}>
       <h1 className="heading">чему мы учим наших детей</h1>
 
       <div className={styles.boxContainer}>

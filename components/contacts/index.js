@@ -8,7 +8,7 @@ import styles from './Contacts.module.css';
 
 const Contacts = () => {
   return (
-    <section className={styles.contact}>
+    <section id="contacts" className={styles.contact}>
       <div className={styles.row}>
         <div className={styles.contactInfo}>
           <div className={styles.box}>
