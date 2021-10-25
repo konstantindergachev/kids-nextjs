@@ -1,13 +1,21 @@
 import React from 'react';
+import { withRouter } from 'next/router';
+import BaseLayout from '@/layouts/base-layout';
+import AppHead from '@/layouts/head';
 
 import styles from './Tales.module.css';
 
-const Tales = () => {
+const Tales = ({ router }) => {
   return (
-    <section className={styles.test}>
-      <h1>Tales page</h1>
-    </section>
+    <>
+      <AppHead title="Сказки" />
+      <BaseLayout username={router.query?.username}>
+        <section className={styles.test}>
+          <h1>Tales page</h1>
+        </section>
+      </BaseLayout>
+    </>
   );
 };
 
-export default Tales;
+export default withRouter(Tales);

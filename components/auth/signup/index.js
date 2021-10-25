@@ -9,7 +9,7 @@ import styles from './Signup.module.css';
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ firstname: '', lastname: '', email: '', password: '' });
   const [error, setError] = useState('');
-  const { push } = useRouter();
+  const router = useRouter();
 
   const handleChange = (ev) => {
     setUser((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
@@ -17,8 +17,9 @@ const Signup = ({ onClose }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      await notifyService.create({ endpoint: 'users', content: user });
-      push('/tales');
+      const response = await notifyService.create({ endpoint: 'users', content: user });
+      const username = response?.user ? `${response.user.firstname} ${response.user.lastname}` : '';
+      router.push({ pathname: '/tales', query: { username } });
     } catch (error) {
       setError(error?.data?.message);
     }

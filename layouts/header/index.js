@@ -3,7 +3,7 @@ import Navbar from '@/components/navbar';
 import Logo from '@/components/shared/logo';
 import styles from './Header.module.css';
 
-const Header = () => {
+const Header = ({ username }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -17,7 +17,7 @@ const Header = () => {
         className={`fas ${!menuIsOpen ? 'fa-times' : 'fa-bars'} ${styles.menuBars}`}
         onClick={toggleMobileMenu}
       ></div>
-      {!menuIsOpen && <Navbar />}
+      {!menuIsOpen && <Navbar username={username} />}
     </header>
   );
 };

@@ -15,6 +15,12 @@
   color: var(--white);
 }
 
+.navbar span {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  margin-left: 2rem;
+}
+
 @media (max-width: 768px) {
   .navbar {
     position: absolute;
@@ -32,5 +38,9 @@
     font-size: 2.5rem;
     margin: 2rem auto;
     display: block;
+  }
+  .navbar span {
+    display: block;
+    text-align: center;
   }
 }

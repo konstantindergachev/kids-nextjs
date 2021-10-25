@@ -8,6 +8,7 @@ import Services from '@/components/services';
 import Teachers from '@/components/teachers';
 import Pricing from '@/components/pricing';
 import Contacts from '@/components/contacts';
+import BaseLayout from '@/layouts/base-layout';
 
 import { request } from '../config/axios';
 
@@ -17,16 +18,16 @@ export default function Home(props) {
   console.log('props', props); //FIXME:
   return (
     <div className={styles.container}>
-      <AppHead />
-      <Header />
-      <Welcome />
-      <Features />
-      <About />
-      <Services />
-      <Teachers />
-      <Pricing />
-      <Contacts />
-      <Footer />
+      <AppHead title="Главная" />
+      <BaseLayout>
+        <Welcome />
+        <Features />
+        <About />
+        <Services />
+        <Teachers />
+        <Pricing />
+        <Contacts />
+      </BaseLayout>
     </div>
   );
 }

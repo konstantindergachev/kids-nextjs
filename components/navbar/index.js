@@ -4,8 +4,9 @@ import Modal from '@/shared/modal';
 import styles from './Navbar.module.css';
 import Signin from '../auth/signin';
 import Signup from '../auth/signup';
+import Button from '../shared/button';
 
-const Navbar = () => {
+const Navbar = ({ username = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAccount, setIsAccount] = useState(false);
 
@@ -25,9 +26,16 @@ const Navbar = () => {
       <button type="button">воспитатели</button>
       <button type="button">цена</button>
       <button type="button">контакты</button>
-      <button type="button" onClick={handleModalOpen()}>
-        <i className="fas fa-user"></i>
-      </button>
+      {username ? (
+        <>
+          <Button title="выйти" />
+          <span>{username}</span>
+        </>
+      ) : (
+        <button type="button" onClick={handleModalOpen()}>
+          <i className="fas fa-user"></i>
+        </button>
+      )}
       <Modal isOpen={isModalOpen} onClose={handleModalOpen()}>
         {!isAccount ? (
           <>
