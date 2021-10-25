@@ -1,6 +1,42 @@
-.test {
-  outline: 1px dashed tomato;
+.title {
+  font-size: 5rem;
+  color: var(--red);
   text-align: center;
-  text-transform: uppercase;
-  color: slateblue;
+}
+
+.image {
+  margin: 1rem 0;
+}
+.image img {
+  width: 36vw;
+  position: relative;
+  top: -9rem;
+}
+
+.tales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tales article {
+  min-height: 450px;
+  flex: 1 1 27rem;
+  padding: 2rem 3rem;
+  margin: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.tales h3 {
+  font-size: 2.5rem;
+  color: var(--title-color);
+}
+
+.tales p {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
 }
