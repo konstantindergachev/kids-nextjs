@@ -7,12 +7,11 @@ import Teachers from '@/components/teachers';
 import Pricing from '@/components/pricing';
 import Contacts from '@/components/contacts';
 import BaseLayout from '@/layouts/base-layout';
-
-import styles from '../styles/Home.module.css';
+import TopButton from '@/components/shared/top-button';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <AppHead title="Главная" />
       <BaseLayout>
         <Welcome />
@@ -23,6 +22,7 @@ export default function Home() {
         <Pricing />
         <Contacts />
       </BaseLayout>
-    </div>
+      <TopButton />
+    </>
   );
 }

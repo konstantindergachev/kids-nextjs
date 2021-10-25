@@ -1,0 +1,10 @@
+.topButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.topButton a {
+  font-size: 5rem;
+  color: var(--title-color);
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import Button from '@/shared/button';
 
 import pic1 from '../../images/contact-img.png';
 
 import styles from './Contacts.module.css';
-import Button from '@/shared/button';
 
 const Contacts = () => {
   return (
