@@ -4,7 +4,7 @@ import Modal from '@/shared/modal';
 import styles from './Navbar.module.css';
 import Signin from '../auth/signin';
 import Signup from '../auth/signup';
-import Button from '../shared/button';
+import UserNavbar from './user-navbar';
 
 const Navbar = ({ username = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,10 +27,7 @@ const Navbar = ({ username = '' }) => {
       <button type="button">цена</button>
       <button type="button">контакты</button>
       {username ? (
-        <>
-          <Button title="выйти" />
-          <span>{username}</span>
-        </>
+        <UserNavbar username={username} />
       ) : (
         <button type="button" onClick={handleModalOpen()}>
           <i className="fas fa-user"></i>
