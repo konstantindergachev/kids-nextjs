@@ -29,7 +29,7 @@ const Tales = ({ tales }) => {
                 <Link
                   href={{
                     pathname: `/tales/[slug]`,
-                    query: { username: query?.username },
+                    query: { slug: tale.slug, username: query?.username },
                   }}
                 >
                   Читать
@@ -47,7 +47,10 @@ export default Tales;
 
 export async function getServerSideProps() {
   try {
-    const { tales } = await request({ method: 'get', url: 'http://localhost:5000/tales' });
+    const { tales } = await request({
+      method: 'get',
+      url: 'http://localhost:5000/tales/first-pages',
+    });
     return {
       props: { tales },
     };
