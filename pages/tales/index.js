@@ -29,7 +29,7 @@ const Tales = ({ tales }) => {
                 <Link
                   href={{
                     pathname: `/tales/[slug]`,
-                    query: { slug: tale.slug, username: query?.username },
+                    query: { username: query?.username },
                   }}
                 >
                   Читать
