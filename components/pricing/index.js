@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../shared/button';
+import Card from '@/shared/card';
 
 import styles from './Pricing.module.css';
 
@@ -8,31 +9,31 @@ const Pricing = () => {
     <section id="pricing" className={`${styles.pricing} ${styles.upAndDown}`}>
       <h1 className="heading">цены и услуги</h1>
 
-      <div className={styles.boxContainer}>
-        <div className={styles.box}>
-          <h3 className={styles.boxTitle}>недельный</h3>
-          <div className={styles.boxPrice}>
-            <span>530 </span>&#8372;
+      <div className={styles.container}>
+        <Card classname={styles.weekly}>
+          <h3 className={styles.title}>недельный</h3>
+          <div className={styles.priceWrapper}>
+            <span className={styles.price}>530 </span>&#8372;
           </div>
-          <ol>
+          <ul className={styles.list}>
             <li>Консультация логопеда-дефектолога</li>
             <li>Комплексное развитие</li>
             <li>Рисование</li>
             <li>Красивый почерк</li>
             <li>Английский язык</li>
-          </ol>
+          </ul>
           <Button title="Узнать больше" />
-        </div>
+        </Card>
 
-        <div className={styles.box}>
-          <span className={styles.boxChoise}>
+        <Card classname={styles.monthly}>
+          <span className={styles.choise}>
             лучший <br /> выбор
           </span>
-          <h3 className={styles.boxTitle}>месячный</h3>
-          <div className={styles.boxPrice}>
-            <span>1325 </span>&#8372;
+          <h3 className={styles.title}>месячный</h3>
+          <div className={styles.priceWrapper}>
+            <span className={styles.price}>1325 </span>&#8372;
           </div>
-          <ol>
+          <ul className={styles.list}>
             <li>Консультация логопеда-дефектолога</li>
             <li>Комплексное развитие: первые 5 уроков</li>
             <li>Рисование</li>
@@ -43,16 +44,16 @@ const Pricing = () => {
             <li>Вокал</li>
             <li>Робототехника</li>
             <li>Подготовка к школе</li>
-          </ol>
+          </ul>
           <Button title="Узнать больше" />
-        </div>
+        </Card>
 
-        <div className={styles.box}>
-          <h3 className={styles.boxTitle}>годовой</h3>
-          <div className={styles.boxPrice}>
-            <span>6625 </span>&#8372;
+        <Card classname={styles.yearly}>
+          <h3 className={styles.title}>годовой</h3>
+          <div className={styles.priceWrapper}>
+            <span className={styles.price}>6625 </span>&#8372;
           </div>
-          <ol>
+          <ul className={styles.list}>
             <li>Консультация логопеда-дефектолога</li>
             <li>Комплексное развитие: первые 5 уроков</li>
             <li>Рисование</li>
@@ -68,9 +69,9 @@ const Pricing = () => {
             <li>Вокальный ансамбль</li>
             <li>Гитара</li>
             <li>Индивидуальные занятия со специалистом</li>
-          </ol>
+          </ul>
           <Button title="Узнать больше" />
-        </div>
+        </Card>
       </div>
     </section>
   );

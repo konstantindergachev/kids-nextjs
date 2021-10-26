@@ -22,58 +22,52 @@
   position: relative;
 }
 
-.boxContainer {
+.container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.box {
-  align-self: start;
-  flex: 1 1 25rem;
-  margin: 1rem;
-  padding: 4rem 2rem;
-  border-radius: 1rem;
-  box-shadow: var(--input-shadow);
-  border: var(--input-border);
-  text-align: center;
-  background-size: cover !important;
-  background-position: center !important;
+.weekly {
+  background: url(../../images/card-bg1.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.monthly {
+  background: url(../../images/card-bg2.png) no-repeat;
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
 }
-.box:nth-child(1) {
-  background: url(../../images/card-bg1.png) no-repeat;
-}
-.box:nth-child(2) {
-  background: url(../../images/card-bg2.png) no-repeat;
-}
-.box:nth-child(3) {
+.yearly {
   background: url(../../images/card-bg3.png) no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-.boxTitle {
+.title {
   font-size: 4rem;
   color: var(--title-color);
 }
 
-.boxPrice {
+.priceWrapper {
   font-size: 5.5rem;
   color: var(--red);
 }
 
-.box .price span {
-  font-size: 2.5rem;
+.price {
+  font-size: inherit;
 }
 
-.box ol {
+.list {
   font-size: 1.7rem;
   padding: 1rem;
   color: var(--text-color);
 }
 
-.boxChoise {
+.choise {
   position: absolute;
   top: 0;
   right: -5rem;
