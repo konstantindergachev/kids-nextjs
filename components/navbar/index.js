@@ -20,13 +20,13 @@ const Navbar = ({ username = '' }) => {
   };
   return (
     <nav className={styles.navbar}>
-      <CustomLink pathname="#" title="главная" />
-      <CustomLink pathname="#features" title="особенности" />
-      <CustomLink pathname="#about" title="о нас" />
-      <CustomLink pathname="#services" title="сервисы" />
-      <CustomLink pathname="#teachers" title="воспитатели" />
-      <CustomLink pathname="#pricing" title="цена" />
-      <CustomLink pathname="#contacts" title="контакт" />
+      <CustomLink pathname="/#" title="главная" />
+      <CustomLink pathname="/#features" title="особенности" />
+      <CustomLink pathname="/#about" title="о нас" />
+      <CustomLink pathname="/#services" title="сервисы" />
+      <CustomLink pathname="/#teachers" title="воспитатели" />
+      <CustomLink pathname="/#pricing" title="цена" />
+      <CustomLink pathname="/#contacts" title="контакт" />
       {username ? (
         <UserNavbar username={username} />
       ) : (
