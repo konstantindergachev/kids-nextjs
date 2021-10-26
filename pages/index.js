@@ -7,7 +7,7 @@ import Teachers from '@/components/teachers';
 import Pricing from '@/components/pricing';
 import Contacts from '@/components/contacts';
 import BaseLayout from '@/layouts/base-layout';
-import TopButton from '@/components/shared/top-button';
+import TopButton from '@/shared/top-button';
 
 export default function Home() {
   return (
@@ -22,7 +22,7 @@ export default function Home() {
         <Pricing />
         <Contacts />
       </BaseLayout>
-      <TopButton />
+      <TopButton pathname="/#" />
     </>
   );
 }

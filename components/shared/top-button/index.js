@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 import styles from './TopButton.module.css';
 
-const TopButton = () => {
+const TopButton = ({ pathname }) => {
   return (
     <div className={styles.topButton}>
-      <Link href="/#">&#9650;</Link>
+      <Link href={pathname}>&#9650;</Link>
     </div>
   );
 };

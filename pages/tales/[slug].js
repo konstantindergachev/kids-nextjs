@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
 import Card from '@/shared/card';
+import TopButton from '@/shared/top-button';
 
 import { request } from '../../config/axios';
 
@@ -38,6 +39,7 @@ const Tale = ({ tale }) => {
           </div>
         </section>
       </BaseLayout>
+      <TopButton pathname={`/tales/${tale.slug}?username=${query?.username}`} />
     </>
   );
 };
