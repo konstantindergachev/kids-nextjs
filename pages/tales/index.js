@@ -1,9 +1,10 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import Link from 'next/link';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
+import Card from '@/shared/card';
+import CustomLink from '@/shared/link';
 
 import { request } from '../../config/axios';
 
@@ -17,24 +18,23 @@ const Tales = ({ tales }) => {
       <BaseLayout username={query?.username}>
         <section>
           <h1 className={styles.title}>Сказки</h1>
-          <div className={styles.tales}>
+          <div className={styles.container}>
             {tales.map((tale) => (
-              <article key={tale.id}>
-                <h3>{tale.title}</h3>
+              <Card key={tale.id}>
+                <h3 className={styles.subtitle}>{tale.title}</h3>
                 <div className={styles.image}>
                   <Image src={tale.couplets[0].images[0]} alt="picture" width={600} height={500} />
                 </div>
-                <p>{tale.description}</p>
-                <p>{tale.artist}</p>
-                <Link
-                  href={{
+                <p className={styles.paragraph}>{tale.description}</p>
+                <p className={styles.paragraph}>{tale.artist}</p>
+                <CustomLink
+                  pathname={{
                     pathname: `/tales/[slug]`,
                     query: { slug: tale.slug, username: query?.username },
                   }}
-                >
-                  Читать
-                </Link>
-              </article>
+                  title="читать"
+                />
+              </Card>
             ))}
           </div>
         </section>

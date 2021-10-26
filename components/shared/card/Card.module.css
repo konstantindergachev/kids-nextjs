@@ -1,0 +1,17 @@
+.card {
+  min-width: 450px;
+  min-height: 450px;
+  flex: 1 1 27rem;
+  padding: 2rem 3rem;
+  margin: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 450px) {
+  .card {
+    min-width: auto;
+  }
+}

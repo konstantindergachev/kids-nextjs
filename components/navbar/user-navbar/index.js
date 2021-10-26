@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@/shared/button';
-import CustomLink from '@/components/shared/link';
+import CustomLink from '@/shared/link';
 
 const UserNavbar = ({ username }) => {
   return (

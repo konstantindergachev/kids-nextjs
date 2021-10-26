@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
+import Card from '@/shared/card';
 
 import { request } from '../../config/axios';
 
@@ -14,22 +15,24 @@ const Tale = ({ tale }) => {
     <>
       <AppHead title={tale.title} />
       <BaseLayout username={query?.username}>
-        <section className={styles.tales}>
-          <div className={styles.titleWrap}>
+        <section>
+          <div className={styles.wrapper}>
             <h1 className={styles.title}>{tale.title}</h1>
-            <h3>{tale.artist}</h3>
+            <h3 className={styles.subtitle}>{tale.artist}</h3>
           </div>
-          <div className={styles.tales}>
+          <div className={styles.container}>
             {tale.couplets.map((couplet, idx) => {
               return (
-                <article key={idx}>
+                <Card key={idx}>
                   <div className={styles.image}>
                     <Image src={couplet.images[0]} alt="picture" width={600} height={500} />
                   </div>
                   {couplet.text.map((paragraph, idx) => (
-                    <p key={idx}>{paragraph}</p>
+                    <p key={idx} className={styles.paragraph}>
+                      {paragraph}
+                    </p>
                   ))}
-                </article>
+                </Card>
               );
             })}
           </div>
