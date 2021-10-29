@@ -1,4 +1,5 @@
 .message {
   color: var(--red) !important;
   text-align: center;
+  font-size: 2rem;
 }

@@ -5,17 +5,31 @@ import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
 import Card from '@/shared/card';
 import CustomLink from '@/shared/link';
+import { parse } from 'cookie';
 
 import { request } from '../../config/axios';
 
 import styles from './Tales.module.css';
+import Error from '@/components/shared/error';
 
-const Tales = ({ tales }) => {
+const Tales = ({ tales, username = '' }) => {
+  if (tales.hasOwnProperty('error')) {
+    return (
+      <>
+        <AppHead title="Сказки" />
+        <BaseLayout username={username}>
+          <section>
+            <Error message={tales.error} />
+          </section>
+        </BaseLayout>
+      </>
+    );
+  }
   const { query } = useRouter();
   return (
     <>
       <AppHead title="Сказки" />
-      <BaseLayout username={query?.username}>
+      <BaseLayout username={username}>
         <section>
           <h1 className={styles.title}>Сказки</h1>
           <div className={styles.container}>
@@ -45,16 +59,23 @@ const Tales = ({ tales }) => {
 
 export default Tales;
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req, res }) {
+  const cookies = parse(req.headers.cookie);
+
   try {
-    const { tales } = await request({
+    const { tales, username } = await request({
       method: 'get',
       url: 'http://localhost:5000/tales/first-pages',
+      headers: { Authorization: `Bearer ${cookies.kids}` },
     });
+    return {
+      props: { tales, username },
+    };
+  } catch (error) {
+    const tales = {};
+    tales.error = error.data.message;
     return {
       props: { tales },
     };
-  } catch (error) {
-    console.log('catch error', error); //FIXME:
   }
 }
