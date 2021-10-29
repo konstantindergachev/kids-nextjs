@@ -5,7 +5,7 @@ import CustomLink from '@/shared/link';
 const UserNavbar = ({ username }) => {
   return (
     <>
-      <CustomLink pathname={`/tales?username=${username}`} title="сказки" />
+      <CustomLink pathname="/tales" title="сказки" />
       <Button title="выйти" />
       <span>{username}</span>
     </>

@@ -1,21 +1,33 @@
 import React from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
 import Card from '@/shared/card';
 import TopButton from '@/shared/top-button';
+import Error from '@/shared/error';
+import { parse } from 'cookie';
 
 import { request } from '../../config/axios';
 
 import styles from './Tales.module.css';
 
-const Tale = ({ tale }) => {
-  const { query } = useRouter();
+const Tale = ({ tale, username = '' }) => {
+  if (tale.hasOwnProperty('error')) {
+    return (
+      <>
+        <AppHead title="Сказка" />
+        <BaseLayout username={username}>
+          <section>
+            <Error message={tale.error} />
+          </section>
+        </BaseLayout>
+      </>
+    );
+  }
   return (
     <>
       <AppHead title={tale.title} />
-      <BaseLayout username={query?.username}>
+      <BaseLayout username={username}>
         <section>
           <div className={styles.wrapper}>
             <h1 className={styles.title}>{tale.title}</h1>
@@ -39,35 +51,27 @@ const Tale = ({ tale }) => {
           </div>
         </section>
       </BaseLayout>
-      <TopButton pathname={`/tales/${tale.slug}?username=${query?.username}`} />
+      <TopButton pathname={`/tales/${tale.slug}`} />
     </>
   );
 };
 
 export default Tale;
 
-export async function getStaticPaths() {
+export async function getServerSideProps({ req, query }) {
+  const cookies = parse(req.headers.cookie);
   try {
-    const { tales } = await request({ method: 'get', url: 'http://localhost:5000/tales' });
-
-    const paths = tales.map((tale) => ({
-      params: { slug: tale.slug },
-    }));
-
-    return { paths, fallback: false };
-  } catch (error) {
-    console.log('getStaticPaths catch error', error); //FIXME:
-  }
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    const { tale } = await request({
+    const { tale, username } = await request({
       method: 'get',
-      url: `http://localhost:5000/tales/${params.slug}`,
+      url: `http://localhost:5000/tales/${query.tale}`,
+      headers: { Authorization: `Bearer ${cookies.kids}` },
     });
-    return { props: { tale } };
+    return { props: { tale, username } };
   } catch (error) {
-    console.log('getStaticProps catch error', error); //FIXME:
+    const tale = {};
+    tale.error = error.data?.message;
+    return {
+      props: { tale },
+    };
   }
 }

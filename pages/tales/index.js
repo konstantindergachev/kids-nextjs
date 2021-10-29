@@ -1,16 +1,15 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
 import Card from '@/shared/card';
 import CustomLink from '@/shared/link';
+import Error from '@/shared/error';
 import { parse } from 'cookie';
 
 import { request } from '../../config/axios';
 
 import styles from './Tales.module.css';
-import Error from '@/components/shared/error';
 
 const Tales = ({ tales, username = '' }) => {
   if (tales.hasOwnProperty('error')) {
@@ -25,7 +24,7 @@ const Tales = ({ tales, username = '' }) => {
       </>
     );
   }
-  const { query } = useRouter();
+
   return (
     <>
       <AppHead title="Сказки" />
@@ -43,8 +42,8 @@ const Tales = ({ tales, username = '' }) => {
                 <p className={styles.paragraph}>{tale.artist}</p>
                 <CustomLink
                   pathname={{
-                    pathname: `/tales/[slug]`,
-                    query: { slug: tale.slug, username: query?.username },
+                    pathname: `/tales/[tale]`,
+                    query: { tale: tale.slug },
                   }}
                   title="читать"
                 />
