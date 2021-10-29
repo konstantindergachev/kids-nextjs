@@ -7,7 +7,7 @@ import UserNavbar from './user-navbar';
 
 import styles from './Navbar.module.css';
 
-const Navbar = ({ username = '' }) => {
+const Navbar = ({ username }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAccount, setIsAccount] = useState(false);
 
@@ -34,29 +34,31 @@ const Navbar = ({ username = '' }) => {
           <i className="fas fa-user"></i>
         </button>
       )}
-      <Modal isOpen={isModalOpen} onClose={handleModalOpen()}>
-        {!isAccount ? (
-          <>
-            <Signin onClose={handleModalOpen()} />
-            <p>
-              Нет учетной записи?{' '}
-              <span type="button" onClick={handleAccount}>
-                создать
-              </span>
-            </p>
-          </>
-        ) : (
-          <>
-            <Signup onClose={handleModalOpen()} />
-            <p>
-              Есть учетная запись?{' '}
-              <span type="button" onClick={handleAccount}>
-                войти
-              </span>
-            </p>
-          </>
-        )}
-      </Modal>
+      {!username && (
+        <Modal isOpen={isModalOpen} onClose={handleModalOpen()}>
+          {!isAccount ? (
+            <>
+              <Signin onClose={handleModalOpen()} />
+              <p>
+                Нет учетной записи?{' '}
+                <span type="button" onClick={handleAccount}>
+                  создать
+                </span>
+              </p>
+            </>
+          ) : (
+            <>
+              <Signup onClose={handleModalOpen()} />
+              <p>
+                Есть учетная запись?{' '}
+                <span type="button" onClick={handleAccount}>
+                  войти
+                </span>
+              </p>
+            </>
+          )}
+        </Modal>
+      )}
     </nav>
   );
 };
