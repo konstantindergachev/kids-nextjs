@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
@@ -6,17 +6,25 @@ import Card from '@/shared/card';
 import CustomLink from '@/shared/link';
 import Error from '@/shared/error';
 import { parse } from 'cookie';
+import { useSetRecoilState } from 'recoil';
+import { baseUsername } from '../../store';
 
 import { request } from '../../config/axios';
 
 import styles from './Tales.module.css';
 
 const Tales = ({ tales, username = '' }) => {
+  const setUsername = useSetRecoilState(baseUsername);
+
+  useEffect(() => {
+    setUsername(() => ({ username }));
+  }, []);
+
   if (tales.hasOwnProperty('error')) {
     return (
       <>
         <AppHead title="Сказки" />
-        <BaseLayout username={username}>
+        <BaseLayout>
           <section>
             <Error message={tales.error} />
           </section>
@@ -28,7 +36,7 @@ const Tales = ({ tales, username = '' }) => {
   return (
     <>
       <AppHead title="Сказки" />
-      <BaseLayout username={username}>
+      <BaseLayout>
         <section>
           <h1 className={styles.title}>Сказки</h1>
           <div className={styles.container}>

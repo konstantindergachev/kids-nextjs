@@ -1,15 +1,18 @@
 import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import CustomLink from '@/shared/link';
 import Modal from '@/shared/modal';
 import Signin from '../auth/signin';
 import Signup from '../auth/signup';
 import UserNavbar from './user-navbar';
+import { selectUsername } from '../../store';
 
 import styles from './Navbar.module.css';
 
-const Navbar = ({ username }) => {
+const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAccount, setIsAccount] = useState(false);
+  const storedUsername = useRecoilValue(selectUsername);
 
   const handleModalOpen = () => () => {
     setIsModalOpen(!isModalOpen);
@@ -27,14 +30,14 @@ const Navbar = ({ username }) => {
       <CustomLink pathname="/#teachers" title="воспитатели" />
       <CustomLink pathname="/#pricing" title="цена" />
       <CustomLink pathname="/#contacts" title="контакт" />
-      {username ? (
-        <UserNavbar username={username} />
+      {storedUsername ? (
+        <UserNavbar />
       ) : (
         <button type="button" onClick={handleModalOpen()}>
           <i className="fas fa-user"></i>
         </button>
       )}
-      {!username && (
+      {!storedUsername && (
         <Modal isOpen={isModalOpen} onClose={handleModalOpen()}>
           {!isAccount ? (
             <>

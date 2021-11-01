@@ -5,7 +5,7 @@ import Header from '../header';
 const BaseLayout = ({ username, children }) => {
   return (
     <>
-      <Header username={username} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>

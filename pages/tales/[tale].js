@@ -11,12 +11,12 @@ import { request } from '../../config/axios';
 
 import styles from './Tales.module.css';
 
-const Tale = ({ tale, username = '' }) => {
+const Tale = ({ tale }) => {
   if (tale.hasOwnProperty('error')) {
     return (
       <>
         <AppHead title="Сказка" />
-        <BaseLayout username={username}>
+        <BaseLayout>
           <section>
             <Error message={tale.error} />
           </section>
@@ -27,7 +27,7 @@ const Tale = ({ tale, username = '' }) => {
   return (
     <>
       <AppHead title={tale.title} />
-      <BaseLayout username={username}>
+      <BaseLayout>
         <section>
           <div className={styles.wrapper}>
             <h1 className={styles.title}>{tale.title}</h1>
@@ -61,12 +61,12 @@ export default Tale;
 export async function getServerSideProps({ req, query }) {
   const cookies = parse(req.headers.cookie);
   try {
-    const { tale, username } = await request({
+    const { tale } = await request({
       method: 'get',
       url: `http://localhost:5000/tales/${query.tale}`,
       headers: { Authorization: `Bearer ${cookies.kids}` },
     });
-    return { props: { tale, username } };
+    return { props: { tale } };
   } catch (error) {
     const tale = {};
     tale.error = error.data?.message;
