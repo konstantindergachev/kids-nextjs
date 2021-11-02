@@ -13,6 +13,19 @@
   align-items: center;
   justify-content: space-between;
 }
+.card:before {
+  counter-increment: cardCounter;
+  content: counter(cardCounter);
+  color: white;
+  background: var(--input-text-color);
+  display: inline-block;
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  line-height: 2;
+  width: 40px;
+  height: 40px;
+}
 
 @media (max-width: 450px) {
   .card {

@@ -33,7 +33,7 @@ const Tale = ({ tale }) => {
             <h1 className={styles.title}>{tale.title}</h1>
             <h3 className={styles.subtitle}>{tale.artist}</h3>
           </div>
-          <div className={styles.container}>
+          <ol className={styles.container}>
             {tale.couplets.map((couplet, idx) => {
               return (
                 <Card key={idx}>
@@ -48,7 +48,7 @@ const Tale = ({ tale }) => {
                 </Card>
               );
             })}
-          </div>
+          </ol>
         </section>
       </BaseLayout>
       <TopButton pathname={`/tales/${tale.slug}`} />
