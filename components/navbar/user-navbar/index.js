@@ -5,6 +5,7 @@ import Error from '@/shared/error';
 import CustomLink from '@/shared/link';
 import { useRecoilState } from 'recoil';
 import { baseUsername } from '../../../store';
+import { request } from '../../../config/axios';
 
 const UserNavbar = () => {
   const [error, setError] = useState('');
@@ -13,7 +14,10 @@ const UserNavbar = () => {
 
   const onExit = async () => {
     try {
-      await fetch('http://localhost:3000/api/user/logout', { method: 'get' });
+      await request({
+        method: 'get',
+        url: 'http://localhost:3000/api/user/logout',
+      });
       router.push({ pathname: '/' });
       setUsername(() => ({ username: '' }));
     } catch (error) {

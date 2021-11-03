@@ -9,6 +9,7 @@
   --input-text-color: rgba(102, 102, 102, 0.5);
   --slideInRight: slideInRight 0.3s ease-in;
   --rotateIn: rotateIn 0.5s ease-in;
+  --green: #008000;
 }
 
 * {

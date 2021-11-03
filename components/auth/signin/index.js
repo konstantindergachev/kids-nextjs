@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Button from '@/shared/button';
 import Error from '@/shared/error';
+import { notifyService } from '@/services';
 
 import styles from './Signin.module.css';
 
@@ -16,10 +17,10 @@ const Signin = ({ onClose }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      await fetch('http://localhost:3000/api/user/login', {
-        method: 'post',
-        body: JSON.stringify(user),
-        headers: { 'Content-Type': 'application/json' },
+      await notifyService.create({
+        port: 3000,
+        endpoint: '/api/user/login',
+        content: user,
       });
       router.push({ pathname: '/tales' });
     } catch (error) {

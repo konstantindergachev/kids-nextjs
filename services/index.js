@@ -1,9 +1,9 @@
 import { request } from '../config/axios';
 
-const create = ({ endpoint, content }) => {
+const create = ({ port, endpoint, content }) => {
   return request({
     method: 'post',
-    url: `http://localhost:5000/${endpoint}`,
+    url: `http://localhost:${port}/${endpoint}`,
     data: content,
   });
 };

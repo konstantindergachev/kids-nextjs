@@ -1,0 +1,5 @@
+.message {
+  color: var(--green) !important;
+  text-align: center;
+  font-size: 2rem;
+}

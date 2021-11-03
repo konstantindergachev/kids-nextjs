@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Button from '@/shared/button';
 import Error from '@/shared/error';
+import Message from '@/components/shared/message';
 import { notifyService } from '@/services';
 
 import styles from './Signup.module.css';
@@ -9,7 +9,7 @@ import styles from './Signup.module.css';
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ firstname: '', lastname: '', email: '', password: '' });
   const [error, setError] = useState('');
-  const router = useRouter();
+  const [message, setMessage] = useState('');
 
   const handleChange = (ev) => {
     setUser((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
@@ -17,9 +17,14 @@ const Signup = ({ onClose }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await notifyService.create({ endpoint: 'users', content: user });
-      const username = response?.user ? `${response.user.firstname} ${response.user.lastname}` : '';
-      router.push({ pathname: '/tales', query: { username } });
+      const { success, message } = await notifyService.create({
+        port: 5000,
+        endpoint: 'users',
+        content: user,
+      });
+      if (success) {
+        setMessage(message);
+      }
     } catch (error) {
       setError(error?.data?.message);
     }
@@ -57,6 +62,7 @@ const Signup = ({ onClose }) => {
           onChange={handleChange}
         />
         {error && <Error message={error} />}
+        {message && <Message message={message} />}
         <div className={styles.buttonWrap}>
           <Button title="отмена" onClick={onClose} />
           <Button type="submit" title="регистрация" />

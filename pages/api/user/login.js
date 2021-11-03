@@ -5,6 +5,7 @@ import { TOKEN_NAME, MAX_AGE } from '@/constants';
 export default async (req, res) => {
   try {
     const response = await notifyService.create({
+      port: 5000,
       endpoint: 'users/login',
       content: req.body,
     });
