@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import BaseLayout from '@/layouts/base-layout';
 import AppHead from '@/layouts/head';
-import Card from '@/shared/card';
+import Couplet from '@/shared/couplet';
 import TopButton from '@/shared/top-button';
 import Error from '@/shared/error';
 import { parse } from 'cookie';
@@ -36,7 +36,7 @@ const Tale = ({ tale }) => {
           <ol className={styles.container}>
             {tale.couplets.map((couplet, idx) => {
               return (
-                <Card key={idx}>
+                <Couplet key={idx}>
                   <div className={styles.image}>
                     <Image src={couplet.images[0]} alt="picture" width={600} height={500} />
                   </div>
@@ -45,7 +45,7 @@ const Tale = ({ tale }) => {
                       {paragraph}
                     </p>
                   ))}
-                </Card>
+                </Couplet>
               );
             })}
           </ol>
