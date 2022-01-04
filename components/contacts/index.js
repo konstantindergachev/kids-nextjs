@@ -1,12 +1,46 @@
-import React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Button from '@/shared/button';
+import Error from '@/shared/error';
+import Message from '@/shared/message';
+
+import { notifyService } from '@/services';
 
 import pic1 from '../../images/contact-img.png';
 
 import styles from './Contacts.module.css';
 
 const Contacts = () => {
+  const [letter, setMagicLetter] = useState({
+    magic_title: '',
+    magic_email: '',
+    magic_number: 0,
+    magic_text: '',
+  });
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleChange = (ev) => {
+    setMagicLetter((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
+  };
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await notifyService.create({
+        port: 5000,
+        endpoint: 'letters',
+        content: letter,
+      });
+
+      if (response?.success) {
+        setMessage(response.message);
+      }
+    } catch (error) {
+      setError(error?.data?.message || error?.data?.errors.message);
+    }
+  };
+
   return (
     <section id="contacts" className={styles.contact}>
       <div className={styles.row}>
@@ -38,20 +72,43 @@ const Contacts = () => {
           <div className={styles.box}>
             <h3 className={styles.title}>новости</h3>
             <form action="">
-              <input type="email" placeholder="test@example.com" />
+              <input type="email" placeholder="magic@email.com" />
               <Button type="submit" title="отправить" />
             </form>
           </div>
         </div>
 
-        <form action="" className={styles.contactForm}>
+        <form action="" className={styles.contactForm} onSubmit={handleSubmit}>
           <h3>Напиши нам</h3>
-
-          <input type="text" placeholder="текст" />
-          <input type="email" placeholder="test@example.com" />
-          <input type="number" placeholder="число" />
-          <textarea placeholder="сообщение" name="" id="" cols="30" rows="10"></textarea>
-          <Button type="submit" title="отправить сообщение" />
+          {error && <Error message={error} />}
+          {message && <Message message={message} />}
+          <input
+            type="text"
+            name="magic_title"
+            placeholder="твоя магическая тема"
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="magic_email"
+            placeholder="твой магический адрес (test@example.com)"
+            onChange={handleChange}
+          />
+          <input
+            type="number"
+            name="magic_number"
+            placeholder="твое магическое число"
+            onChange={handleChange}
+          />
+          <textarea
+            placeholder="сообщение"
+            name="magic_text"
+            id=""
+            cols="30"
+            rows="10"
+            onChange={handleChange}
+          ></textarea>
+          <Button type="submit" title="отправить нам" />
         </form>
       </div>
 
