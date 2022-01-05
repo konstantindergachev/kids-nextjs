@@ -19,6 +19,7 @@ const Contacts = () => {
   });
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const [newsLetterEmail, setNewsLetterEmail] = useState('');
 
   const handleChange = (ev) => {
     setMagicLetter((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
@@ -33,6 +34,26 @@ const Contacts = () => {
         content: letter,
       });
 
+      if (response?.success) {
+        setMessage(response.message);
+      }
+    } catch (error) {
+      setError(error?.data?.message || error?.data?.errors.message);
+    }
+  };
+
+  const handleChangeNewsLetter = (ev) => {
+    setNewsLetterEmail(ev.target.value);
+  };
+
+  const handleNewsLetterSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await notifyService.create({
+        port: 5000,
+        endpoint: 'users/news',
+        content: { email: newsLetterEmail },
+      });
       if (response?.success) {
         setMessage(response.message);
       }
@@ -71,14 +92,14 @@ const Contacts = () => {
 
           <div className={styles.box}>
             <h3 className={styles.title}>новости</h3>
-            <form action="">
-              <input type="email" placeholder="magic@email.com" />
+            <form onSubmit={handleNewsLetterSubmit}>
+              <input type="email" placeholder="magic@email.com" onChange={handleChangeNewsLetter} />
               <Button type="submit" title="отправить" />
             </form>
           </div>
         </div>
 
-        <form action="" className={styles.contactForm} onSubmit={handleSubmit}>
+        <form className={styles.contactForm} onSubmit={handleSubmit}>
           <h3>Напиши нам</h3>
           {error && <Error message={error} />}
           {message && <Message message={message} />}
