@@ -26,7 +26,8 @@ export default async (req, res) => {
       .status(200)
       .json({ username: `${response.user.firstname} ${response.user.lastname}` });
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    const { status, data } = error;
+    res.status(status).json({ message: data.errors.message });
   }
 
   res.status(406).json({ error: 'Not acceptable' });

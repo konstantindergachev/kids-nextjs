@@ -17,12 +17,14 @@ const Signin = ({ onClose }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      await notifyService.create({
+      const response = await notifyService.create({
         port: 3000,
         endpoint: '/api/user/login',
         content: user,
       });
-      router.push({ pathname: '/tales' });
+      if (response?.username) {
+        router.push({ pathname: '/tales' });
+      }
     } catch (error) {
       setError(error?.data?.message || error?.data?.errors.message);
     }
