@@ -5,12 +5,11 @@ import AppHead from '@/layouts/head';
 import Error from '@/shared/error';
 import Message from '@/components/shared/message';
 import Button from '@/shared/button';
+import { notifyService } from '@/services';
 
 const Profile = ({ profile }) => {
   const [userProfile, setUserProfile] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
+    gender: '',
     phone: '',
     address: '',
   });
@@ -21,12 +20,41 @@ const Profile = ({ profile }) => {
     setUserProfile((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
   };
 
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
+  const handleSelectFile = (ev) => {
+    const file = ev.target.files[0];
+    const pattern = /image-*/;
+    if (file && file.type.match(pattern)) {
+      const reader = new FileReader();
+      handleFileUpload(file);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleFileUpload = async (file) => {
+    const fileData = new FormData();
+    fileData.append('file', file, file.name);
+
     try {
       const { success, message } = await notifyService.create({
         port: 5000,
-        endpoint: 'profile',
+        endpoint: 'profiles/upload',
+        content: fileData,
+      });
+      if (success) {
+        setMessage(message);
+      }
+    } catch (error) {
+      setError(error?.data?.message);
+    }
+  };
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+
+    try {
+      const { success, message } = await notifyService.create({
+        port: 5000,
+        endpoint: 'profiles',
         content: userProfile,
       });
       if (success) {
@@ -55,31 +83,18 @@ const Profile = ({ profile }) => {
       <BaseLayout>
         <section>
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="firstname"
-              placeholder="ваше имя"
-              value={userProfile.firstname}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="lastname"
-              placeholder="ваше фамилия"
-              value={userProfile.lastname}
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="ваш email"
-              value={userProfile.email}
-              onChange={handleChange}
-            />
+            <div className="select__wrapper">
+              <select name="gender" onChange={handleChange}>
+                <option>ваш пол</option>
+                <option value="мужчина">мужчина</option>
+                <option value="женщина">женщина</option>
+              </select>
+            </div>
+            <input type="file" name="photo" onChange={handleSelectFile} />
             <input
               type="text"
               name="phone"
-              placeholder="ваш мобильный"
+              placeholder="ваш номер телефона"
               value={userProfile.phone}
               onChange={handleChange}
             />

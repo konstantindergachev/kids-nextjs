@@ -52,6 +52,7 @@ section {
   font-size: 3.5rem;
 }
 
+select,
 input,
 textarea {
   width: 100%;
@@ -63,6 +64,25 @@ textarea {
   border: var(--input-border);
   box-shadow: var(--input-shadow);
   text-transform: none;
+}
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.select__wrapper {
+  cursor: pointer;
+  color: var(--text-color);
+  position: relative;
+}
+
+.select__wrapper::after {
+  content: '▼';
+  position: absolute;
+  line-height: 1rem;
+  font-size: 1.5rem;
+  top: 3rem;
+  right: 1.5rem;
 }
 textarea {
   border-radius: 2rem;
