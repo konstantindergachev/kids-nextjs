@@ -28,6 +28,7 @@ const UserNavbar = () => {
   return (
     <>
       <CustomLink pathname="/tales" title="сказки" />
+      <CustomLink pathname="/profile" title="профиль" />
       {error && <Error message={error} />}
       <Button title="выйти" onClick={onExit} />
       <span>{username}</span>
