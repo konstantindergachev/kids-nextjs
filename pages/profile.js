@@ -53,8 +53,8 @@ const Profile = ({ profile }) => {
 
     try {
       const { success, message } = await notifyService.create({
-        port: 5000,
-        endpoint: 'profiles',
+        port: 3000,
+        endpoint: 'api/profile',
         content: userProfile,
       });
       if (success) {
@@ -119,8 +119,6 @@ export default Profile;
 
 export async function getServerSideProps({ req, res }) {
   const cookies = parse(req.headers.cookie);
-
-  console.log('cookies', cookies); //FIXME: remove me
 
   if (!cookies.kids) {
     const profile = {};
