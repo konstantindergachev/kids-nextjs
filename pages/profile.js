@@ -7,6 +7,10 @@ import Message from '@/components/shared/message';
 import Button from '@/shared/button';
 import { notifyService } from '@/services';
 
+import { request } from '../config/axios';
+
+import styles from './Profile.module.css';
+
 const Profile = ({ profile }) => {
   const [userProfile, setUserProfile] = useState({
     gender: '',
@@ -81,8 +85,8 @@ const Profile = ({ profile }) => {
     <>
       <AppHead title="Профиль" />
       <BaseLayout>
-        <section>
-          <form onSubmit={handleSubmit}>
+        <section className={styles.section}>
+          <form onSubmit={handleSubmit} className={styles.form}>
             <div className="select__wrapper">
               <select name="gender" onChange={handleChange}>
                 <option>ваш пол</option>
@@ -107,8 +111,21 @@ const Profile = ({ profile }) => {
             />
             {error && <Error message={error} />}
             {message && <Message message={message} />}
-            <Button type="submit" title="отправиль" />
+            <Button type="submit" title="отправить" />
           </form>
+          <ul className={styles.list}>
+            <li>имя: {profile.firstname}</li>
+            <li>фамилия: {profile.lastname}</li>
+            <li>емайл: {profile.email}</li>
+            <li>пол: {profile.profile.gender}</li>
+            <img
+              src={profile.profile.photo}
+              alt={`${profile.firstname} ${profile.lastname}`}
+              width={250}
+            />
+            <li>моб.: {profile.profile.phone}</li>
+            <li>адрес: {profile.profile.address}</li>
+          </ul>
         </section>
       </BaseLayout>
     </>
@@ -127,8 +144,21 @@ export async function getServerSideProps({ req, res }) {
       props: { profile },
     };
   }
+  try {
+    const { user } = await request({
+      method: 'get',
+      url: 'http://localhost:5000/profiles',
+      headers: { Authorization: `Bearer ${cookies.kids}` },
+    });
 
-  return {
-    props: { profile: 'test' },
-  };
+    return {
+      props: { profile: user },
+    };
+  } catch (error) {
+    const profile = {};
+    profile.error = error.message;
+    return {
+      props: { profile },
+    };
+  }
 }

@@ -1,0 +1,16 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form,
+.list {
+  max-width: 50%;
+}
+
+.list {
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
