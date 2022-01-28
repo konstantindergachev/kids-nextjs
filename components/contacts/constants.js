@@ -6,6 +6,8 @@ export const CHARCOUNT = {
 };
 
 export const MESSAGES = {
+  NEWSLETTER_EMAIL_REQUIRED: 'емайл для получения новостей - необходимое поле',
+  NEWSLETTER_EMAIL_IS_VALID: 'емайл должен быть правильным',
   MAGIC_TITLE_MIN: `магический заголовок должен быть минимум ${CHARCOUNT.MAGIC_TITLE_MIN} символов`,
   MAGIC_TITLE_MAX: `магический заголовок должен быть короче чем ${CHARCOUNT.MAGIC_TITLE_MAX} символов`,
   MAGIC_EMAIL_REQUIRED: 'магический емайл - необходимое поле',

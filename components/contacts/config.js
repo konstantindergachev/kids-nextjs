@@ -3,7 +3,7 @@ import { Input } from '@/components/shared/input';
 import { CHARCOUNT, MESSAGES } from './constants';
 import { TextArea } from '@/components/shared/textarea';
 
-export const form = {
+export const magicForm = {
   inputs: [
     {
       id: 1,
@@ -59,4 +59,22 @@ export const magicTextSchema = object().shape({
     .min(CHARCOUNT.MAGIC_TEXT_MIN, MESSAGES.MAGIC_TEXT_MIN)
     .max(CHARCOUNT.MAGIC_TEXT_MAX, MESSAGES.MAGIC_TEXT_MAX)
     .required(),
+});
+
+export const newsletterForm = {
+  inputs: [
+    {
+      id: 1,
+      type: 'email',
+      name: 'newsletter_email',
+      placeholder: 'емайл для наших новостей',
+      value: 'newsletter_email',
+      component: Input,
+    },
+  ],
+};
+export const newsletterSchema = object().shape({
+  newsletter_email: trimString
+    .email(MESSAGES.NEWSLETTER_EMAIL_IS_VALID)
+    .required(MESSAGES.NEWSLETTER_EMAIL_REQUIRED),
 });

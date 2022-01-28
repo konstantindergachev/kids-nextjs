@@ -5,7 +5,7 @@ import { FormItem } from '@/shared/form-item';
 import Error from '@/shared/error';
 import Message from '@/shared/message';
 
-import { form, magicTextSchema } from './config';
+import { magicForm, magicTextSchema, newsletterForm, newsletterSchema } from './config';
 import { notifyService } from '@/services';
 
 import pic1 from '../../images/contact-img.png';
@@ -27,14 +27,14 @@ const Contacts = () => {
     magic_text: '',
   });
   const [message, setMessage] = useState('');
-  const [newsLetterEmail, setNewsLetterEmail] = useState('');
+  const [newsLetterEmail, setNewsLetterEmail] = useState({ newsletter_email: '' });
+  const [inputNewsLetterError, setInputNewsLetterError] = useState({ newsletter_email: '' });
 
-  const validate = (field) => async () => {
+  const validateMagicText = (field) => async () => {
     try {
       await magicTextSchema.validateAt(field, letter);
       setInputError((old) => ({ ...old, [field]: '' }));
     } catch (error) {
-      console.log('error.message', error.message); //FIXME: remove me
       setInputError((old) => ({ ...old, [field]: error.message }));
     }
   };
@@ -60,8 +60,16 @@ const Contacts = () => {
     }
   };
 
+  const validateNewsLetter = (field) => async () => {
+    try {
+      await newsletterSchema.validateAt(field, newsLetterEmail);
+      setInputNewsLetterError((old) => ({ ...old, [field]: '' }));
+    } catch (error) {
+      setInputNewsLetterError((old) => ({ ...old, [field]: error.message }));
+    }
+  };
   const handleChangeNewsLetter = (ev) => {
-    setNewsLetterEmail(ev.target.value);
+    setNewsLetterEmail((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
   };
 
   const handleNewsLetterSubmit = async (ev) => {
@@ -111,7 +119,18 @@ const Contacts = () => {
           <div className={styles.box}>
             <h3 className={styles.title}>новости</h3>
             <form onSubmit={handleNewsLetterSubmit}>
-              <input type="email" placeholder="magic@email.com" onChange={handleChangeNewsLetter} />
+              {newsletterForm.inputs.map((input) => (
+                <Fragment key={input.id}>
+                  <FormItem
+                    item={input}
+                    value={newsLetterEmail}
+                    onChange={handleChangeNewsLetter}
+                    onBlur={validateNewsLetter}
+                    onKeyPress={validateNewsLetter}
+                  />
+                  <Error message={inputNewsLetterError[input.name]} />
+                </Fragment>
+              ))}
               <Button type="submit" title="подписаться" />
             </form>
           </div>
@@ -121,14 +140,14 @@ const Contacts = () => {
           <h3>Напиши нам</h3>
           {requestError && <Error message={requestError} />}
           {message && <Message message={message} />}
-          {form.inputs.map((input) => (
+          {magicForm.inputs.map((input) => (
             <Fragment key={input.id}>
               <FormItem
                 item={input}
                 value={letter}
                 onChange={handleChange}
-                onBlur={validate}
-                onKeyPress={validate}
+                onBlur={validateMagicText}
+                onKeyPress={validateMagicText}
               />
               <Error message={inputError[input.name]} />
             </Fragment>
