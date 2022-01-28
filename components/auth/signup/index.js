@@ -6,6 +6,7 @@ import { notifyService } from '@/services';
 
 import { form, signupSchema } from './config';
 import styles from './Signup.module.css';
+import { FormItem } from '@/components/shared/form-item';
 
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ firstname: '', lastname: '', email: '', password: '' });
@@ -51,14 +52,12 @@ const Signup = ({ onClose }) => {
       <form onSubmit={handleSubmit}>
         {form.inputs.map((input) => (
           <Fragment key={input.id}>
-            <input
-              type={input.type}
-              name={input.name}
-              placeholder={input.placeholder}
-              value={user[input.value]}
+            <FormItem
+              item={input}
+              value={user}
               onChange={handleChange}
-              onBlur={validate(input.name)}
-              onKeyPress={validate(input.name)}
+              onBlur={validate}
+              onKeyPress={validate}
             />
             <Error message={inputError[input.name]} />
           </Fragment>

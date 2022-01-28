@@ -1,3 +1,4 @@
+import { Input } from '@/components/shared/input';
 import { string, object } from 'yup';
 import { CHARCOUNT, MESSAGES } from './constants';
 
@@ -9,6 +10,7 @@ export const form = {
       name: 'firstname',
       placeholder: 'ваше имя',
       value: 'firstname',
+      component: Input,
     },
     {
       id: 2,
@@ -16,6 +18,7 @@ export const form = {
       name: 'lastname',
       placeholder: 'ваша фамилия',
       value: 'lastname',
+      component: Input,
     },
     {
       id: 3,
@@ -23,6 +26,7 @@ export const form = {
       name: 'email',
       placeholder: 'ваш емайл',
       value: 'email',
+      component: Input,
     },
     {
       id: 4,
@@ -30,6 +34,7 @@ export const form = {
       name: 'password',
       placeholder: 'ваш пароль',
       value: 'password',
+      component: Input,
     },
   ],
 };

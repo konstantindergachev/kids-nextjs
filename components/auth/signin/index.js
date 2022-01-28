@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
 import Button from '@/shared/button';
+import { FormItem } from '@/shared/form-item';
 import Error from '@/shared/error';
 import { notifyService } from '@/services';
 
@@ -47,14 +48,12 @@ const Signin = ({ onClose }) => {
       <form onSubmit={handleSubmit}>
         {form.inputs.map((input) => (
           <Fragment key={input.id}>
-            <input
-              type={input.type}
-              name={input.name}
-              placeholder={input.placeholder}
-              value={user[input.value]}
+            <FormItem
+              item={input}
+              value={user}
               onChange={handleChange}
-              onBlur={validate(input.name)}
-              onKeyPress={validate(input.name)}
+              onBlur={validate}
+              onKeyPress={validate}
             />
             <Error message={inputError[input.name]} />
           </Fragment>
