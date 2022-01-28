@@ -72,7 +72,6 @@
   }
   .boxContainer:first-child .box {
     flex-flow: column;
-    text-align: center;
   }
   .boxContainer + div {
     display: none !important;
@@ -80,6 +79,10 @@
   .boxContainer .box {
     flex-flow: column;
     text-align: center;
+  }
+
+  .boxContainer:first-child {
+    max-width: 100%;
   }
 
   .stick {

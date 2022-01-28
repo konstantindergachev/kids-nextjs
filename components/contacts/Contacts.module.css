@@ -72,4 +72,13 @@
     flex-flow: column;
     align-items: flex-start;
   }
+
+  .contactInfo,
+  .contactForm {
+    text-align: center;
+    width: 100%;
+  }
+  .contactInfo {
+    margin-bottom: 5rem;
+  }
 }
