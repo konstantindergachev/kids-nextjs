@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
 import Button from '@/shared/button';
 import Error from '@/shared/error';
 import { notifyService } from '@/services';
 
-import { form } from './config';
+import { form, signinSchema } from './config';
 import styles from './Signin.module.css';
 
 const Signin = ({ onClose }) => {
   const [user, setUser] = useState({ email: '', password: '' });
-  const [error, setError] = useState('');
+  const [requestError, setRequestError] = useState('');
+  const [inputError, setInputError] = useState({ email: '', password: '' });
   const router = useRouter();
+
+  const validate = (field) => async () => {
+    try {
+      await signinSchema.validateAt(field, user);
+      setInputError((old) => ({ ...old, [field]: '' }));
+    } catch (error) {
+      setInputError((old) => ({ ...old, [field]: error.message }));
+    }
+  };
 
   const handleChange = (ev) => {
     setUser((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
@@ -27,7 +37,7 @@ const Signin = ({ onClose }) => {
         router.push({ pathname: '/tales' });
       }
     } catch (error) {
-      setError(error?.data?.message || error?.data?.errors.message);
+      setRequestError(error?.data?.message || error?.data?.errors.message);
     }
   };
 
@@ -36,16 +46,20 @@ const Signin = ({ onClose }) => {
       <h3>вход</h3>
       <form onSubmit={handleSubmit}>
         {form.inputs.map((input) => (
-          <input
-            key={input.id}
-            type={input.type}
-            name={input.name}
-            placeholder={input.placeholder}
-            value={user[input.value]}
-            onChange={handleChange}
-          />
+          <Fragment key={input.id}>
+            <input
+              type={input.type}
+              name={input.name}
+              placeholder={input.placeholder}
+              value={user[input.value]}
+              onChange={handleChange}
+              onBlur={validate(input.name)}
+              onKeyPress={validate(input.name)}
+            />
+            <Error message={inputError[input.name]} />
+          </Fragment>
         ))}
-        {error && <Error message={error} />}
+        {requestError && <Error message={requestError} />}
         <div className={styles.buttonWrap}>
           <Button title="отмена" onClick={onClose} />
           <Button type="submit" title="войти" />

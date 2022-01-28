@@ -1,16 +1,31 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import Button from '@/shared/button';
 import Error from '@/shared/error';
 import Message from '@/components/shared/message';
 import { notifyService } from '@/services';
 
-import { form } from './config';
+import { form, signupSchema } from './config';
 import styles from './Signup.module.css';
 
 const Signup = ({ onClose }) => {
   const [user, setUser] = useState({ firstname: '', lastname: '', email: '', password: '' });
-  const [error, setError] = useState('');
+  const [requestError, setRequestError] = useState('');
+  const [inputError, setInputError] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+  });
   const [message, setMessage] = useState('');
+
+  const validate = (field) => async () => {
+    try {
+      await signupSchema.validateAt(field, user);
+      setInputError((old) => ({ ...old, [field]: '' }));
+    } catch (error) {
+      setInputError((old) => ({ ...old, [field]: error.message }));
+    }
+  };
 
   const handleChange = (ev) => {
     setUser((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
@@ -27,7 +42,7 @@ const Signup = ({ onClose }) => {
         setMessage(message);
       }
     } catch (error) {
-      setError(error?.data?.message);
+      setRequestError(error?.data?.message);
     }
   };
   return (
@@ -35,16 +50,20 @@ const Signup = ({ onClose }) => {
       <h3>зарегестрироваться</h3>
       <form onSubmit={handleSubmit}>
         {form.inputs.map((input) => (
-          <input
-            key={input.id}
-            type={input.type}
-            name={input.name}
-            placeholder={input.placeholder}
-            value={user[input.value]}
-            onChange={handleChange}
-          />
+          <Fragment key={input.id}>
+            <input
+              type={input.type}
+              name={input.name}
+              placeholder={input.placeholder}
+              value={user[input.value]}
+              onChange={handleChange}
+              onBlur={validate(input.name)}
+              onKeyPress={validate(input.name)}
+            />
+            <Error message={inputError[input.name]} />
+          </Fragment>
         ))}
-        {error && <Error message={error} />}
+        {requestError && <Error message={requestError} />}
         {message && <Message message={message} />}
         <div className={styles.buttonWrap}>
           <Button title="отмена" onClick={onClose} />
