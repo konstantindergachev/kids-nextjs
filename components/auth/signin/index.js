@@ -4,6 +4,7 @@ import Button from '@/shared/button';
 import Error from '@/shared/error';
 import { notifyService } from '@/services';
 
+import { form } from './config';
 import styles from './Signin.module.css';
 
 const Signin = ({ onClose }) => {
@@ -34,20 +35,16 @@ const Signin = ({ onClose }) => {
     <div className={styles.login}>
       <h3>вход</h3>
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="ваш email"
-          value={user.email}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="ваш пароль"
-          value={user.password}
-          onChange={handleChange}
-        />
+        {form.inputs.map((input) => (
+          <input
+            key={input.id}
+            type={input.type}
+            name={input.name}
+            placeholder={input.placeholder}
+            value={user[input.value]}
+            onChange={handleChange}
+          />
+        ))}
         {error && <Error message={error} />}
         <div className={styles.buttonWrap}>
           <Button title="отмена" onClick={onClose} />
