@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/shared/button';
+import { FormItem } from '@/shared/form-item';
 import Error from '@/shared/error';
 import Message from '@/shared/message';
 
+import { form, magicTextSchema } from './config';
 import { notifyService } from '@/services';
 
 import pic1 from '../../images/contact-img.png';
@@ -17,9 +19,25 @@ const Contacts = () => {
     magic_number: 0,
     magic_text: '',
   });
-  const [error, setError] = useState('');
+  const [requestError, setRequestError] = useState('');
+  const [inputError, setInputError] = useState({
+    magic_title: '',
+    magic_email: '',
+    magic_number: '',
+    magic_text: '',
+  });
   const [message, setMessage] = useState('');
   const [newsLetterEmail, setNewsLetterEmail] = useState('');
+
+  const validate = (field) => async () => {
+    try {
+      await magicTextSchema.validateAt(field, letter);
+      setInputError((old) => ({ ...old, [field]: '' }));
+    } catch (error) {
+      console.log('error.message', error.message); //FIXME: remove me
+      setInputError((old) => ({ ...old, [field]: error.message }));
+    }
+  };
 
   const handleChange = (ev) => {
     setMagicLetter((oldState) => ({ ...oldState, [ev.target.name]: ev.target.value }));
@@ -38,7 +56,7 @@ const Contacts = () => {
         setMessage(response.message);
       }
     } catch (error) {
-      setError(error?.data?.message || error?.data?.errors.message);
+      setRequestError(error?.data?.message || error?.data?.errors.message);
     }
   };
 
@@ -58,7 +76,7 @@ const Contacts = () => {
         setMessage(response.message);
       }
     } catch (error) {
-      setError(error?.data?.message || error?.data?.errors.message);
+      setRequestError(error?.data?.message || error?.data?.errors.message);
     }
   };
 
@@ -67,7 +85,7 @@ const Contacts = () => {
       <div className={styles.row}>
         <div className={styles.contactInfo}>
           <div className={styles.box}>
-            <h3 className={styles.title}>contact details</h3>
+            <h3 className={styles.title}>контакты</h3>
             <p>
               {' '}
               <i className="fas fa-map-marker-alt"></i> харьков, украина - 61001{' '}
@@ -94,42 +112,28 @@ const Contacts = () => {
             <h3 className={styles.title}>новости</h3>
             <form onSubmit={handleNewsLetterSubmit}>
               <input type="email" placeholder="magic@email.com" onChange={handleChangeNewsLetter} />
-              <Button type="submit" title="отправить" />
+              <Button type="submit" title="подписаться" />
             </form>
           </div>
         </div>
 
         <form className={styles.contactForm} onSubmit={handleSubmit}>
           <h3>Напиши нам</h3>
-          {error && <Error message={error} />}
+          {requestError && <Error message={requestError} />}
           {message && <Message message={message} />}
-          <input
-            type="text"
-            name="magic_title"
-            placeholder="твоя магическая тема"
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            name="magic_email"
-            placeholder="твой магический адрес (test@example.com)"
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            name="magic_number"
-            placeholder="твое магическое число"
-            onChange={handleChange}
-          />
-          <textarea
-            placeholder="сообщение"
-            name="magic_text"
-            id=""
-            cols="30"
-            rows="10"
-            onChange={handleChange}
-          ></textarea>
-          <Button type="submit" title="отправить нам" />
+          {form.inputs.map((input) => (
+            <Fragment key={input.id}>
+              <FormItem
+                item={input}
+                value={letter}
+                onChange={handleChange}
+                onBlur={validate}
+                onKeyPress={validate}
+              />
+              <Error message={inputError[input.name]} />
+            </Fragment>
+          ))}
+          <Button type="submit" title="отправить" />
         </form>
       </div>
 

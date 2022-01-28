@@ -1,30 +1,24 @@
 .contact {
   display: flex;
   align-items: center;
-}
-
-.image img {
-  width: 38vw !important;
+  justify-content: space-between;
 }
 
 .row {
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
+  flex: 2 1 100%;
+  margin-right: 2rem;
 }
 
 .contactInfo {
-  padding: 2rem;
+  width: 30%;
 }
 
 .contactForm {
-  padding: 2rem;
-}
-.contactForm button {
-  width: 100%;
-}
-
-.box {
-  padding: 1rem 0;
+  width: 50%;
+  margin-right: 4rem;
 }
 
 .title {
