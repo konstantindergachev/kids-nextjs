@@ -78,7 +78,7 @@ const Contacts = () => {
       const response = await notifyService.create({
         port: 5000,
         endpoint: 'users/news',
-        content: { email: newsLetterEmail },
+        content: { email: newsLetterEmail.newsletter_email },
       });
       if (response?.success) {
         setMessage(response.message);
