@@ -21,7 +21,6 @@ export default async (req, res) => {
 
       return res.status(200).json(response);
     } else {
-      console.log('edit userProfile', userProfile); //FIXME: remove me
       const response = await notifyService.create({
         port: 5000,
         endpoint: 'profiles/edit',
