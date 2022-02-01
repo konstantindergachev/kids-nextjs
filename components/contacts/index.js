@@ -47,16 +47,21 @@ const Contacts = () => {
     ev.preventDefault();
     try {
       const response = await notifyService.create({
-        port: 5000,
-        endpoint: 'letters',
+        endpoint: `${process.env.NEXT_PUBLIC_API_URL}/letters`,
         content: letter,
       });
 
       if (response?.success) {
         setMessage(response.message);
+        setMagicLetter({
+          magic_title: '',
+          magic_email: '',
+          magic_number: 0,
+          magic_text: '',
+        });
       }
     } catch (error) {
-      setRequestError(error?.data?.message || error?.data?.errors.message);
+      setRequestError(error?.data?.message || error?.data?.errors?.message);
     }
   };
 
