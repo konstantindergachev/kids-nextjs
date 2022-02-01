@@ -61,7 +61,7 @@ const Contacts = () => {
         });
       }
     } catch (error) {
-      setRequestError(error?.data?.message || error?.data?.errors?.message);
+      setRequestError(error?.data?.message || error?.data?.errors.magic_email);
     }
   };
 
