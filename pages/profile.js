@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { notifyService } from '@/services';
 
 import { request } from '../config/axios';
+import { api } from '@/constants';
 
 import styles from './Profile.module.css';
 
@@ -45,11 +46,9 @@ const Profile = ({ profile }) => {
   const handleFileUpload = async (file) => {
     const fileData = new FormData();
     fileData.append('file', file, file.name);
-
     try {
       const { success, message } = await notifyService.create({
-        port: 5000,
-        endpoint: 'profiles/upload',
+        endpoint: `api/profiles/upload`,
         content: fileData,
       });
       if (success) {
@@ -65,7 +64,6 @@ const Profile = ({ profile }) => {
 
     try {
       const { success, message } = await notifyService.create({
-        port: 3000,
         endpoint: 'api/profile',
         content: { userProfile, profileStatus },
       });
@@ -180,13 +178,15 @@ const Profile = ({ profile }) => {
             {profile.profile && (
               <>
                 <h3 className={styles.title}>{profile.profile.gender}</h3>
-                <Image
-                  src={profile.profile.photo_url}
-                  alt={`${profile.firstname} ${profile.lastname}`}
-                  className={styles.image}
-                  width={250}
-                  height={250}
-                />
+                {profile.profile?.photo_url && (
+                  <Image
+                    src={profile.profile.photo_url}
+                    alt={`${profile.firstname} ${profile.lastname}`}
+                    className={styles.image}
+                    width={250}
+                    height={250}
+                  />
+                )}
                 <h3 className={styles.title}>{profile.profile.phone}</h3>
                 <h3 className={styles.title}>{profile.profile.address}</h3>
               </>
@@ -218,7 +218,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const { user } = await request({
       method: 'get',
-      url: 'http://localhost:5000/profiles',
+      url: `${api.url}/profiles`,
       headers: { Authorization: `Bearer ${cookies.kids}` },
     });
 

@@ -5,7 +5,6 @@ import { TOKEN_NAME, MAX_AGE } from '@/constants';
 export default async (req, res) => {
   try {
     const response = await notifyService.create({
-      port: 5000,
       endpoint: 'users/login',
       content: req.body,
     });
@@ -27,7 +26,7 @@ export default async (req, res) => {
       .json({ username: `${response.user.firstname} ${response.user.lastname}` });
   } catch (error) {
     const { status, data } = error;
-    res.status(status).json({ message: data.errors.message });
+    res.status(status).json({ message: data?.errors?.message });
   }
 
   res.status(406).json({ error: 'Not acceptable' });

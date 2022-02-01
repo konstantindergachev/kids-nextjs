@@ -10,6 +10,7 @@ import { useSetRecoilState } from 'recoil';
 import { baseUsername } from '../../store';
 
 import { request } from '../../config/axios';
+import { api } from '@/constants';
 
 import styles from './Tales.module.css';
 
@@ -72,7 +73,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const { tales, username } = await request({
       method: 'get',
-      url: 'http://localhost:5000/tales/first-pages',
+      url: `${api.url}/tales/first-pages`,
       headers: { Authorization: `Bearer ${cookies.kids}` },
     });
     return {

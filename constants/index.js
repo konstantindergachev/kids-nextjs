@@ -1,6 +1,6 @@
 export const api = {
-  url: 'http://localhost:5000',
+  url: process.env.API_URL,
 };
 
-export const TOKEN_NAME = 'kids';
-export const MAX_AGE = 60 * 60 * 8; //8 hours
+export const TOKEN_NAME = process.env.TOKEN_NAME;
+export const MAX_AGE = process.env.MAX_AGE;

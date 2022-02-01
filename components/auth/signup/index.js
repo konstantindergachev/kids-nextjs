@@ -35,7 +35,6 @@ const Signup = ({ onClose }) => {
     ev.preventDefault();
     try {
       const { success, message } = await notifyService.create({
-        port: 5000,
         endpoint: 'users',
         content: user,
       });

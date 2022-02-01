@@ -16,12 +16,12 @@ const UserNavbar = () => {
     try {
       await request({
         method: 'get',
-        url: 'http://localhost:3000/api/user/logout',
+        url: `api/user/logout`,
       });
       router.push({ pathname: '/' });
       setUsername(() => ({ username: '' }));
     } catch (error) {
-      setError(error?.data?.message || error?.data?.errors.message);
+      setError(error?.data?.message || error?.data?.errors?.message);
     }
   };
 

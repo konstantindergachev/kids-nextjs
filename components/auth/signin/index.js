@@ -30,15 +30,14 @@ const Signin = ({ onClose }) => {
     ev.preventDefault();
     try {
       const response = await notifyService.create({
-        port: 3000,
-        endpoint: '/api/user/login',
+        endpoint: 'api/user/login',
         content: user,
       });
       if (response?.username) {
         router.push({ pathname: '/tales' });
       }
     } catch (error) {
-      setRequestError(error?.data?.message || error?.data?.errors.message);
+      setRequestError(error?.data?.message || error?.data?.errors?.message);
     }
   };
 

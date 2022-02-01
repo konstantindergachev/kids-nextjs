@@ -8,6 +8,7 @@ import Error from '@/shared/error';
 import { parse } from 'cookie';
 
 import { request } from '../../config/axios';
+import { api } from '@/constants';
 
 import styles from './Tales.module.css';
 
@@ -63,7 +64,7 @@ export async function getServerSideProps({ req, query }) {
   try {
     const { tale } = await request({
       method: 'get',
-      url: `http://localhost:5000/tales/${query.tale}`,
+      url: `${api.url}/tales/${query.tale}`,
       headers: { Authorization: `Bearer ${cookies.kids}` },
     });
     return { props: { tale } };

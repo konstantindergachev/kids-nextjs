@@ -13,8 +13,7 @@ export default async (req, res) => {
       };
 
       const response = await notifyService.create({
-        port: 5000,
-        endpoint: 'profiles',
+        endpoint: `profiles`,
         content: profile,
         headers: { Authorization: `Bearer ${kids}` },
       });
@@ -22,8 +21,7 @@ export default async (req, res) => {
       return res.status(200).json(response);
     } else {
       const response = await notifyService.create({
-        port: 5000,
-        endpoint: 'profiles/edit',
+        endpoint: `profiles/edit`,
         content: userProfile,
         headers: { Authorization: `Bearer ${kids}` },
       });
