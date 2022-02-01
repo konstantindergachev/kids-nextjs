@@ -48,7 +48,7 @@ const Profile = ({ profile }) => {
     fileData.append('file', file, file.name);
     try {
       const { success, message } = await notifyService.create({
-        endpoint: `api/profiles/upload`,
+        endpoint: `${process.env.NEXT_PUBLIC_API_URL}/profiles/upload`,
         content: fileData,
       });
       if (success) {
