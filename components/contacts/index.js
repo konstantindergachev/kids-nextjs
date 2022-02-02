@@ -81,15 +81,17 @@ const Contacts = () => {
     ev.preventDefault();
     try {
       const response = await notifyService.create({
-        port: 5000,
-        endpoint: 'users/news',
+        endpoint: `${process.env.NEXT_PUBLIC_API_URL}/users/news`,
         content: { email: newsLetterEmail.newsletter_email },
       });
       if (response?.success) {
         setMessage(response.message);
+        setNewsLetterEmail({
+          newsletter_email: '',
+        });
       }
     } catch (error) {
-      setRequestError(error?.data?.message || error?.data?.errors.message);
+      setRequestError(error?.data?.message || error?.data?.errors.newsletter_email);
     }
   };
 
